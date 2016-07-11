@@ -1,0 +1,25 @@
+{
+  "name": "pickchat",
+  "description": "pickchat",
+  "main": "app.js",
+  "authors": [
+    "pickchat"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "pickchat"
+  ],
+  "homepage": "https://github.com/Nexters/pickchat",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/javascripts/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "socket.io-client": "^1.4.8"
+  }
+}
