@@ -38,4 +38,4 @@ jspm_packages
 
 .idea
 
-.public/javascripts/bower_components
+pickchat/public/javascripts/bower_components
