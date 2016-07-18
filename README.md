@@ -19,7 +19,14 @@ Cardfactory project
     $ bower install
 ```
 
-- 시작하려면
+- 시작하려면 터미널 2개 띄워서
+
+```
+    $ node ./bin/www
+    $ gulp watch
+```
+
+- 하나로 실행
 
 ```
     $ npm start

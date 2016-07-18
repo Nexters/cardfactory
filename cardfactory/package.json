@@ -3,9 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "all": "gulp watch & node ./bin/www",
-    "start": "node ./bin/www",
-    "watch": "gulp watch"
+    "start": "gulp watch & node ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
