@@ -4,5 +4,9 @@ define([
 ], function (
   $
 ) {
+  function CardView(template) {
 
+  }
+
+  return CardView;
 });

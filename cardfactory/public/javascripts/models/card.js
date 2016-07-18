@@ -4,5 +4,12 @@ define([
 ], function (
   _
 ) {
+  'use strict';
+
+  function Card() {
+
+  }
+
+  return Card;
 
 });

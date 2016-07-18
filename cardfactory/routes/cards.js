@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET cards edit. */
 router.get('/edit', function(req, res, next) {
-  res.render('card-edit', { title: 'Express' });
+  res.render('card-edit-page', { title: 'Express' });
 });
 
 module.exports = router;
