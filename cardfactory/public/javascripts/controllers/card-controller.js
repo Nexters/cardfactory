@@ -1,8 +1,6 @@
 //card-controller.js
 define([
-
 ], function (
-
 ) {
   'use strict';
 
@@ -10,18 +8,19 @@ define([
     var self = this;
     self.model = model;
     self.view = view;
-    console.log("DDDD");
 
-    //self.view.bind('newCard', function () {
-    //  self.addCard();
-    //});
+    self.view.bind('saveCard', function(data) {
+      self.addCard(data);
+    });
   }
 
-  CardController.prototype.addCard = function() {
+  CardController.prototype.addCard = function(data) {
     var self = this;
-    //self.model.create({}, function () {
-    //  self.view.render('newCard');
-    //});
+    self.model.create(data, function(card) {
+      if (card) {
+        self.view.render('showCard', card);
+      }
+    });
   };
 
   return CardController;
