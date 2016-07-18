@@ -4,8 +4,10 @@
 - Author: Nexters
 - Created: 2016.07.18
 
+
 ## 1. Introduction (개요)
 - 간편하게 카드 형식의 컨텐츠를 만들 수 있는 웹 서비스
+
 
 ## 2. Scenario (시나리오)
 - 
@@ -22,8 +24,10 @@
 ## 3. Component and Interface 
 - 컴포넌트 목록과 인터페이스 정의
 
+
 ## 4. Requirements (기능 목록 정의)
 - 기능 목록 정의
+
 
 #### **Open Issues**
 
