@@ -1,15 +1,15 @@
 {
-  "name": "pickchat",
-  "description": "pickchat",
+  "name": "cardfactory",
+  "description": "cardfactory",
   "main": "app.js",
   "authors": [
-    "pickchat"
+    "cardfactory"
   ],
   "license": "MIT",
   "keywords": [
-    "pickchat"
+    "cardfactory"
   ],
-  "homepage": "https://github.com/Nexters/pickchat",
+  "homepage": "https://github.com/Nexters/cardfactory",
   "private": true,
   "ignore": [
     "**/.*",

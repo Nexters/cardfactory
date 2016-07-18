@@ -1,5 +1,5 @@
-# pickchat
-Pickchat project
+# cardfactory
+Cardfactory project
 
 # 세팅
 - 노드 설치 (https://nodejs.org/en/download/)
@@ -14,7 +14,7 @@ Pickchat project
 - npm, bower 모듈 설치
 
 ```
-    $ cd pickchat
+    $ cd cardfactory
     $ npm install
     $ bower install
 ```
