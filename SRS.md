@@ -47,7 +47,7 @@
 
 
 #### **Open Issues**
-- HTML 이미지로 변경하는 기능
+- HTML을 이미지로 변경하는 기능
 - SNS로 공유하는 기능
 
 #### **Technical Note**
