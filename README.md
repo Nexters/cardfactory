@@ -18,3 +18,9 @@ Cardfactory project
     $ npm install
     $ bower install
 ```
+
+- 시작하려면
+
+```
+    $ npm start
+```
