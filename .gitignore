@@ -41,3 +41,5 @@ jspm_packages
 cardfactory/public/javascripts/bower_components
 
 cardfactory/dist
+
+cardfactory/doc

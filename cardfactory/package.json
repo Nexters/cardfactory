@@ -15,9 +15,11 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "apidoc": "^0.16.1",
     "bower": "^1.7.9",
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
+    "gulp-apidoc": "^0.2.4",
     "mocha": "^2.5.3",
     "webpack-stream": "^3.2.0"
   }

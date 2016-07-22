@@ -2,7 +2,12 @@ var express = require('express');
 var router = express.Router();
 var Card = require('../models/card');
 
-/* GET card list page. */
+/**
+ * @api {get} /cards Get Cards
+ * @apiName GetCards
+ * @apiGroup Card
+ *
+ */
 router.get('/', function(req, res, next) {
   //TODO: get card list from Card model
 
