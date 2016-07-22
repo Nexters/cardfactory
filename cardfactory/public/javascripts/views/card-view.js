@@ -21,7 +21,7 @@ define([
     var self = this;
     var viewCommands = {
       showCard: function () {
-        //TODO: 카드 저장된 이후에 보여주는 메서드
+        //TODO: 카드 저장된 이후에 보여주는 메서드. 데이터 템플릿으로 넘겨서 화면 그려줌
         self.$container.html(self.template.show(parameter));
       }
     };
