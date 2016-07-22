@@ -17,6 +17,7 @@ define([
     this.template = new CardTemplate();
     this.view = new CardView(this.template);
     this.controller = new CardController(this.model, this.view);
+
   }
 
   return new CardEditPage();

@@ -39,3 +39,5 @@ jspm_packages
 .idea
 
 cardfactory/public/javascripts/bower_components
+
+cardfactory/dist
