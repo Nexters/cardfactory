@@ -6,7 +6,7 @@ var pool = mysql.createPool({
   port            : config.db.port,
   user            : config.db.user,
   password        : config.db.password,
-  database: 'myfolio'
+  database: 'cardfactory'
 });
 
 module.exports = {
