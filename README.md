@@ -9,6 +9,7 @@ Cardfactory project
 ```
     $ npm install -g express
     $ npm install -g bower
+    $ npm install -g apidoc
 ```
 
 - npm, bower 모듈 설치
@@ -19,15 +20,21 @@ Cardfactory project
     $ bower install
 ```
 
-- 시작하려면 터미널 2개 띄워서
+- 개발 모드로 시작 (터미널 2개 띄워서)
 
 ```
     $ node ./bin/www
     $ gulp watch
 ```
 
-- 하나로 실행
+- 개발 모드로 시작 (터미널 1개로)
 
 ```
     $ npm start
+```
+
+- API 문서 만들기
+
+```
+    $ gulp apidoc
 ```
