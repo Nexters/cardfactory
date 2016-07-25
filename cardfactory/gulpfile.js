@@ -5,12 +5,26 @@ var gulp = require('gulp'),
   jshint = require('gulp-jshint'),
   stylish = require('jshint-stylish'),
   mocha = require('gulp-mocha'),
+  uglify = require("gulp-uglify"),
+  minifyCss = require("gulp-minify-css"),
   spawn = require('child_process').spawn;
 
 var node;
+var serverJsFiles = ['./config/**/*.js', './routes/**/*.js', './models/**/*.js', './db/**/*.js'];
+var clientJsFiles = ['public/javascripts/**/*.js'];
+var cssFiles = ['public/stylesheets/**/*.css'];
 
-gulp.task('default', function() {
-  // place code for your default task here
+gulp.task('uglify-js', function () {
+  return gulp.src(clientJsFiles)
+    .pipe(webpack( require('./webpack.config.js') ))
+    .pipe(uglify())
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('minify-css', function () {
+  return gulp.src(cssFiles)
+    .pipe(minifyCss())
+    .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('server', function() {
@@ -26,20 +40,20 @@ gulp.task('server', function() {
 });
 
 gulp.task('lint', function() {
-  return gulp.src(['./config/**/*.js', './routes/**/*.js', './models/**/*.js', './db/**/*.js'])
+  return gulp.src(serverJsFiles)
     .pipe(jshint({}))
     .pipe(jshint.reporter(stylish));
 });
 
 gulp.task('coverage', function () {
-  return gulp.src(['./config/**/*.js', './routes/**/*.js', './models/**/*.js', './db/**/*.js'])
+  return gulp.src(serverJsFiles)
     // Covering files
     .pipe(istanbul())
     // Force `require` to return covered files
     .pipe(istanbul.hookRequire());
 });
 
-gulp.task('test', ['coverage'], function() {
+gulp.task('test', ['lint', 'coverage'], function() {
   return gulp.src('./test/**/*.js', {read: false})
     .pipe(mocha({reporter: 'nyan'}))
     // Creating the reports after tests ran
@@ -57,11 +71,20 @@ gulp.task('apidoc', function(done){
 });
 
 gulp.task('watch', ['server'], function() {
-  gulp.watch('public/javascripts/**/*.js', function() {
-    return gulp.src('public/javascripts/**/*.js')
+  gulp.watch(clientJsFiles, function() {
+    return gulp.src(clientJsFiles)
       .pipe(webpack( require('./webpack.config.js') ))
       .pipe(gulp.dest('./'));
   });
 
-  gulp.watch(['./config/**/*.js', './routes/**/*.js', './models/**/*.js', './db/**/*.js'], ['server']);
+  gulp.watch(cssFiles, function() {
+    return gulp.src(cssFiles)
+      .pipe(minifyCss())
+      .pipe(gulp.dest('./dist/css'));
+  });
+
+  gulp.watch(serverJsFiles);
 });
+
+
+gulp.task('default', ['uglify-js', 'minify-css']);
