@@ -4,10 +4,25 @@ var gulp = require('gulp'),
   istanbul = require('gulp-istanbul'),
   jshint = require('gulp-jshint'),
   stylish = require('jshint-stylish'),
-  mocha = require('gulp-mocha');
+  mocha = require('gulp-mocha'),
+  spawn = require('child_process').spawn;
+
+var node;
 
 gulp.task('default', function() {
   // place code for your default task here
+});
+
+gulp.task('server', function() {
+  if (node) {
+    node.kill();
+  }
+  node = spawn('node', ['bin/www'], {stdio: 'inherit'});
+  node.on('close', function (code) {
+    if (code === 8) {
+      gulp.log('Error detected, waiting for changes...');
+    }
+  });
 });
 
 gulp.task('lint', function() {
@@ -16,7 +31,7 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('pre-test', function () {
+gulp.task('coverage', function () {
   return gulp.src(['./config/**/*.js', './routes/**/*.js', './models/**/*.js', './db/**/*.js'])
     // Covering files
     .pipe(istanbul())
@@ -24,7 +39,7 @@ gulp.task('pre-test', function () {
     .pipe(istanbul.hookRequire());
 });
 
-gulp.task('test', ['pre-test'], function() {
+gulp.task('test', ['coverage'], function() {
   return gulp.src('./test/**/*.js', {read: false})
     .pipe(mocha({reporter: 'nyan'}))
     // Creating the reports after tests ran
@@ -41,10 +56,12 @@ gulp.task('apidoc', function(done){
   },done);
 });
 
-gulp.task('watch', function() {
-  gulp.watch('public/javascripts/**/*.js', function(event) {
+gulp.task('watch', ['server'], function() {
+  gulp.watch('public/javascripts/**/*.js', function() {
     return gulp.src('public/javascripts/**/*.js')
       .pipe(webpack( require('./webpack.config.js') ))
       .pipe(gulp.dest('./'));
   });
+
+  gulp.watch(['./config/**/*.js', './routes/**/*.js', './models/**/*.js', './db/**/*.js'], ['server']);
 });
