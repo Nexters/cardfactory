@@ -20,17 +20,10 @@ Cardfactory project
     $ bower install
 ```
 
-- 개발 모드로 시작 (터미널 2개 띄워서)
-
-```
-    $ node ./bin/www
-    $ gulp watch
-```
-
 - 개발 모드로 시작 (터미널 1개로)
 
 ```
-    $ npm start
+    $ gulp watch
 ```
 
 - API 문서 만들기
