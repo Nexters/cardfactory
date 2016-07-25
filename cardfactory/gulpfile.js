@@ -13,6 +13,11 @@ var node;
 var serverJsFiles = ['./config/**/*.js', './routes/**/*.js', './models/**/*.js', './db/**/*.js'];
 var clientJsFiles = ['public/javascripts/**/*.js'];
 var cssFiles = ['public/stylesheets/**/*.css'];
+var apidocConf = {
+  src: "routes/",
+  dest: "doc/",
+  debug: true
+};
 
 gulp.task('uglify-js', function () {
   return gulp.src(clientJsFiles)
@@ -63,11 +68,7 @@ gulp.task('test', ['lint', 'coverage'], function() {
 });
 
 gulp.task('apidoc', function(done){
-  apidoc({
-    src: "routes/",
-    dest: "doc/",
-    debug: true
-  },done);
+  apidoc(apidocConf, done);
 });
 
 gulp.task('watch', ['server'], function() {
@@ -87,4 +88,4 @@ gulp.task('watch', ['server'], function() {
 });
 
 
-gulp.task('default', ['uglify-js', 'minify-css']);
+gulp.task('default', ['uglify-js', 'minify-css', 'apidoc']);
