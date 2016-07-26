@@ -1,8 +1,8 @@
 var expect = require('chai').expect;
 var DbHelper = require('../helper/db-helper');
-var Card = require('../../models/card');
+var User = require('../../models/user');
 
-describe('Card', function() {
+describe('User', function() {
   before(function(done) {
     DbHelper.clearAndInsert(function(err) {
       expect(err).to.not.exist;
@@ -11,12 +11,8 @@ describe('Card', function() {
   });
 
   describe('#get', function() {
-    it('should get card data.', function(done) {
-      Card.get({}, function(err, result) {
-        expect(err).to.not.exist;
-        expect(result.length).to.equal(1);
-        done();
-      });
+    it('should get user data.', function(done) {
+      done();
     });
   });
 
