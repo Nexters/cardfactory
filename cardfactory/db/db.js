@@ -6,7 +6,8 @@ var pool = mysql.createPool({
   port            : config.db.port,
   user            : config.db.user,
   password        : config.db.password,
-  connectionLimit : config.db.connectionLimit
+  connectionLimit : config.db.connectionLimit,
+  multipleStatements: config.db.multipleStatements || false
 });
 
 module.exports = {

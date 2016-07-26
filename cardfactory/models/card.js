@@ -7,7 +7,7 @@ exports.create = function(params, finalCallback) {
 
 // Get cards
 exports.get = function(params, finalCallback) {
-  var query = "SELECT * FROM test";
+  var query = "SELECT * FROM card";
 
   pool.query(query, function (err, result) {
     finalCallback(err, result);
