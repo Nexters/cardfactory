@@ -10,6 +10,19 @@ var async = require('async');
 var pool = require('../../db/db').pool;
 
 module.exports = {
+  clearAndInsert: function(finalCallback) {
+    var self = this;
+    async.series([
+      function(callback) {
+        self.clear(callback)
+      },
+      function(callback) {
+        self.insert(callback);
+      }
+    ], function(err) {
+      finalCallback(err);
+    });
+  },
   clear: function(finalCallback) {
     async.series([
       function(callback) {

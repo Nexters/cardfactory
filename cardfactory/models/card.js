@@ -22,6 +22,7 @@ Card.validate = function(params) {
   return error;
 };
 
+// Get card
 Card.get = function(params, finalCallback) {
   var query = "SELECT * FROM card";
 
