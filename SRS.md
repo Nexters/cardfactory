@@ -82,6 +82,10 @@
 - 비밀번호 걸어서 공유하기
 
 ### 4.7 SNS 공유하기
+- sns 목록: facebook kakaotalk instagram
+- 모바일에서 facebook이나 instagram의 sns 버튼(이미지)을 누르면 누른 sns앱으로 이동하여 게시하기 페이지로 이동된다.
+--> 게시하기 페이지에는 만든 이미지가 뜬다.
+- kakaotalk의 버튼을 누르면 kakaotalk으로 이동하여 보낼 상대를 선택하면 이미지가 전송된다.  
 
 ### 4.8 이미지로 변경하기
 - 이미지 크기 변경
