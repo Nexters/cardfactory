@@ -19,4 +19,11 @@ config.isDev = function(){
   return this.env === 'development';
 };
 
+/**
+ * @returns {Boolean} isProduction
+ */
+config.isProduction = function(){
+  return this.env === 'production';
+};
+
 module.exports = config;

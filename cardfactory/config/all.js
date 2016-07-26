@@ -1,6 +1,7 @@
 
 module.exports = {
   env: 'development',
+  secret: 'cardfactory',
   db: {
     database: 'cardfactory',
     host: 'localhost',
