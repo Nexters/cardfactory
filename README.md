@@ -20,6 +20,12 @@ Cardfactory project
     $ bower install
 ```
 
+- DB 테이블 생성
+
+```
+    $ sql/cardfactory.sql
+```
+
 - 개발 모드로 시작 (터미널 1개로)
 
 ```
