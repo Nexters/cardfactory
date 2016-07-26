@@ -5,8 +5,8 @@ var gulp = require('gulp'),
   jshint = require('gulp-jshint'),
   stylish = require('jshint-stylish'),
   mocha = require('gulp-mocha'),
-  uglify = require("gulp-uglify"),
-  minifyCss = require("gulp-minify-css"),
+  uglify = require('gulp-uglify'),
+  minifyCss = require('gulp-minify-css'),
   spawn = require('child_process').spawn;
 
 var node;
@@ -14,10 +14,10 @@ var serverJsFiles = ['./config/**/*.js', './routes/**/*.js', './models/**/*.js',
 var clientJsFiles = ['public/javascripts/**/*.js'];
 var cssFiles = ['public/stylesheets/**/*.css'];
 var apidocConf = {
-  src: "routes/",
-  dest: "doc/",
+  src: 'routes/',
+  dest: 'doc/',
   debug: true,
-  config: "./"
+  config: './'
 };
 
 gulp.task('uglify-js', function () {
