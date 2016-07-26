@@ -16,7 +16,8 @@ var cssFiles = ['public/stylesheets/**/*.css'];
 var apidocConf = {
   src: "routes/",
   dest: "doc/",
-  debug: true
+  debug: true,
+  config: "./"
 };
 
 gulp.task('uglify-js', function () {
