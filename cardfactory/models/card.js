@@ -1,3 +1,4 @@
+var pool = require('../db/db').pool;
 
 // Create new card
 exports.create = function(params, finalCallback) {
@@ -6,7 +7,11 @@ exports.create = function(params, finalCallback) {
 
 // Get cards
 exports.get = function(params, finalCallback) {
+  var query = "SELECT * FROM test";
 
+  pool.query(query, function (err, result) {
+    finalCallback(err, result);
+  });
 };
 
 // Update card

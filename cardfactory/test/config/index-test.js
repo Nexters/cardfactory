@@ -14,10 +14,12 @@ describe('config',function() {
       expect(config.env).to.equal('development');
     });
 
-    it('should get config env.', function() {
+    it('should get config development env.', function() {
       process.env.NODE_ENV = 'development';
       config = reloadConfig();
       expect(config.env).to.equal('development');
+      expect(config.db).to.exist;
+      expect(config.db.database).to.exist;
     });
   });
 

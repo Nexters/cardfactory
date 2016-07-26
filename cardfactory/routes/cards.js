@@ -9,8 +9,10 @@ var Card = require('../models/card');
  */
 router.get('/', function(req, res, next) {
   //TODO: get card list from Card model
-
-  res.render('card-list-page', { title: '카드 목록 페이지' });
+  Card.get(req.query, function(err, result) {
+    console.log(result);
+    res.render('card-list-page', { title: '카드 목록 페이지' });
+  });
 });
 
 /**
