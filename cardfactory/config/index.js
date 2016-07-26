@@ -10,7 +10,7 @@ try {
 } catch(e) {
   envConfig = {};
 }
-var config = _.extend({}, require('./env/all.js'), envConfig);
+var config = _.extend({}, require('./all.js'), envConfig);
 
 /**
  * @returns {Boolean} isDev
