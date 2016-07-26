@@ -54,9 +54,6 @@
 
 ## 4. Requirements (기능 목록 정의)
 ### 4.1 회원가입
-	<<<<<<< HEAD
-	- 
-	=======
 	-회원가입 버튼을 누르면 회원가입 페이지로 이동.
 	- form 으로 양식 생성(post)
 	-->email(input type=email) , nickname, password(input type=password), password 재확인 입력칸. 
@@ -66,8 +63,6 @@
 	- submit 버튼
 	-->버튼 눌렀을 때 빈칸이 있으면 : 빈칸옆에 입력해주세요 alert
 	- SQL Insert 쿼리로 db안에 레코드 넣는다.
-
-	>>>>>>> 58e85e7c2fa93d8980144d62de9dae36d55de3da
 
 ### 4.2 로그인
 	1. 클라이언트
