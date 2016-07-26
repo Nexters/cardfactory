@@ -51,4 +51,17 @@ describe('config',function() {
     });
   });
 
+  describe('#isTest', function() {
+    it('should get true when NODE_ENV is test.', function() {
+      process.env.NODE_ENV = 'test';
+      config = reloadConfig();
+      expect(config.isTest()).to.equal(true);
+    });
+
+    it('should get true when NODE_ENV is development.', function() {
+      process.env.NODE_ENV = 'development';
+      config = reloadConfig();
+      expect(config.isTest()).to.equal(false);
+    });
+  });
 });

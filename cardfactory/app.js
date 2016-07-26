@@ -43,7 +43,6 @@ if (config.isProduction()) {
   }));
 }
 
-
 app.use('/', routes);
 app.use('/users', users);
 app.use('/cards', cards);

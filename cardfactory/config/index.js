@@ -26,4 +26,11 @@ config.isProduction = function(){
   return this.env === 'production';
 };
 
+/**
+ * @returns {Boolean} isTest
+ */
+config.isTest = function(){
+  return this.env === 'test';
+};
+
 module.exports = config;
