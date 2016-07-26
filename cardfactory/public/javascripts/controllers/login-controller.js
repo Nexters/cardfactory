@@ -18,7 +18,7 @@ define([
   }
 
   LoginController.prototype.join = function() {
-
+    
   };
 
   LoginController.prototype.login = function(data) {

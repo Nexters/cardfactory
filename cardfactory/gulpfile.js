@@ -85,7 +85,7 @@ gulp.task('watch', ['server'], function() {
       .pipe(gulp.dest('./dist/css'));
   });
 
-  gulp.watch(serverJsFiles);
+  gulp.watch(serverJsFiles, ['server']);
 });
 
 
