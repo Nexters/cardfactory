@@ -1,5 +1,14 @@
 //main.js
-define(['./firstScript'], function (firstScript) {
-  firstScript.hello();
-});
+define([
+  './views/main-view'
+], function (
+  MainView
+) {
+  'use strict';
 
+  function MainPage() {
+    this.view = new MainView();
+  }
+
+  return new MainPage();
+});
