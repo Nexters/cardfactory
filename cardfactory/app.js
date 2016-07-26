@@ -48,7 +48,7 @@ if (config.isProduction()) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/cards', cards);
-app.use('/images', cards);
+app.use('/images', images);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

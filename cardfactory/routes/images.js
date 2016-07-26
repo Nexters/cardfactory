@@ -1,11 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var ImageController = require('../controllers/image');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: '메인11', name: 'tee' });
-});
+router.get('/:name', ImageController.getImage);
 
-
+router.post('/upload', ImageController.upload);
 
 module.exports = router;
