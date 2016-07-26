@@ -39,7 +39,7 @@ if (config.isProduction()) {
     secret: config.secret,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: {}
   }));
 }
 
