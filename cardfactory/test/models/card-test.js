@@ -13,7 +13,7 @@ describe('Card', function() {
     });
   });
 
-  describe('get', function() {
+  describe('#get', function() {
     it('should get card data.', function(done) {
       Card.get({}, function(err, result) {
         expect(err).to.not.exist;

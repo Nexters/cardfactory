@@ -54,17 +54,24 @@
 
 ## 4. Requirements (기능 목록 정의)
 ### 4.1 회원가입
--회원가입 버튼을 누르면 회원가입 페이지로 이동.
+- 회원가입 버튼을 누르면 회원가입 페이지로 이동.
 - form 으로 양식 생성(post)
--->email(input type=email) , nickname, password(input type=password), password 재확인 입력칸. 
-- 중복체크 : nickname, email (중복확인 button 만들기)
-- nickname은 10자이내
-- password는 6자이상
+    - email(input type=email) , nickname, password(input type=password), password 재확인 입력칸. 
+- 에러 체크 : email, nickname, password 
+    - email 입력칸 밑에 이메일 에러 메시지 표시 (중복, 잘못된 형식)
+    - nickname 입력칸 밑에 에러 메시지 표시 (중복, 길이(최소 3, 최대 12), 알파벳 + 숫자)
+    - password 입력칸 밑에 에러 메시지 표시 (두개 같은지 체크, 길이(최소 6, 최대 50))
 - submit 버튼
--->버튼 눌렀을 때 빈칸이 있으면 : 빈칸옆에 입력해주세요 alert
+    - 에러 있으면 submit 안됨.
+    - POST 방식으로 데이터 서버로 전달
 - SQL Insert 쿼리로 db안에 레코드 넣는다.
 
 ### 4.2 로그인
+1. 클라이언트
+    - 아이디와 비밀번호가 입력
+    - 로그인 버튼 클릭하면 POST 방식으로 id, pw 데이터 서버로 전달
+2. 서버
+    - 아이디와 비밀번호가 일치하는 데이터가 있는지 검사한다.
 
 ### 4.3 카드 컨텐츠 리스트 보여주기
 - 최근 게시된 카드 순으로 카드 컨텐츠를 보여준다.
@@ -76,12 +83,24 @@
 
 ### 4.4 카드 컨텐츠 만들기
 
+
+
 ### 4.5 카드 컨텐츠 삭제
+1. 클라이언트
+    - 최근 게시된 카드 순으로 카드 컨텐츠를 보여준다. (4.3의 내용과 동일)
+    - 삭제할 카드(들)을 선택하고 삭제버튼을 클릭한다.
+    - 삭제 확인 버튼을 클릭한다.
+2. 서버
+    - 전달받은 카드에 대한 정보를 삭제한다.		
 
 ### 4.6 URL 공유하기
 - 
 
 ### 4.7 SNS 공유하기
+- sns 목록: facebook kakaotalk instagram
+- 모바일에서 facebook이나 instagram의 sns 버튼(이미지)을 누르면 누른 sns앱으로 이동하여 게시하기 페이지로 이동된다.
+--> 게시하기 페이지에는 만든 이미지가 뜬다.
+- kakaotalk의 버튼을 누르면 kakaotalk으로 이동하여 보낼 상대를 선택하면 이미지가 전송된다.  
 
 ### 4.8 이미지로 변경하기
 - 이미지 크기 변경
@@ -99,5 +118,3 @@
 - SNS로 공유하는 기능
 
 #### **Technical Note**
-
-
