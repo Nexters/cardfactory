@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href="http://v4-alpha.getbootstrap.com/favicon.ico">
     <title><%= title %></title>
-    <div><%= name %></div>
-    <link rel='stylesheet' href='/css/style.css' />
+    <!-- Bootstrap core CSS -->
+    <link href="/javascripts/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/common.css" rel="stylesheet">
 </head>
 <body>
 <h1><%= title %></h1>
 <p>Welcome to <%= title %></p>
 
-<div>
-    <label>ID</label>
-    <input id="id_input" type="text" name="id"/>
-</div>
-<div>
-    <label>PW</label>
-    <input id="pw_input" type="text" name="id"/>
-</div>
+<div class="wrap">
+    <div>
+        <label>ID</label>
+        <input id="id_input" type="text" name="id"/>
+    </div>
+    <div>
+        <label>PW</label>
+        <input id="pw_input" type="text" name="id"/>
+    </div>
 
-<div id="login_btn">Login</div>
-<div id="join_btn">Join</div>
+    <div id="login_btn">Login</div>
+    <div id="join_btn">Join</div>
+</div>
 
 <script type="text/javascript" src="main.bundle.js" charset="utf-8"></script>
 </body>
