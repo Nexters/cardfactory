@@ -54,6 +54,15 @@
 
 ## 4. Requirements (기능 목록 정의)
 ### 4.1 회원가입
+-회원가입 버튼을 누르면 회원가입 페이지로 이동.
+- form 으로 양식 생성(post)
+-->email(input type=email) , nickname, password(input type=password), password 재확인 입력칸. 
+- 중복체크 : nickname, email (중복확인 button 만들기)
+- nickname은 10자이내
+- password는 6자이상
+- submit 버튼
+-->버튼 눌렀을 때 빈칸이 있으면 : 빈칸옆에 입력해주세요 alert
+- SQL Insert 쿼리로 db안에 레코드 넣는다.
 
 ### 4.2 로그인
 
