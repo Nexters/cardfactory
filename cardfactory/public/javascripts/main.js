@@ -1,13 +1,16 @@
 //main.js
 define([
-  './views/main-view'
+  './controllers/login-controller',
+  './views/login-view'
 ], function (
-  MainView
+  LoginController,
+  LoginView
 ) {
   'use strict';
 
   function MainPage() {
-    this.view = new MainView();
+    this.view = new LoginView();
+    this.controller = new LoginController(this.view);
   }
 
   return new MainPage();

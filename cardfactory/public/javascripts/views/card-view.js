@@ -14,7 +14,7 @@ define([
     this.$title = $('#title');
     this.$text = $('#text');
 
-    this.$saveCard = $('#save_card_btn');
+    this.$saveCardBtn = $('#save_card_btn');
   }
 
   CardView.prototype.render = function(viewCmd, parameter) {
@@ -33,7 +33,7 @@ define([
   CardView.prototype.bind = function(event, handler) {
     var self = this;
     if (event === 'saveCard') {
-      self.$saveCard.click(function() {
+      self.$saveCardBtn.click(function() {
         // TODO: 데이터 가져오기
         var data = {
           theme: self.$theme.find('active'),
