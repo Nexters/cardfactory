@@ -1,19 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var UserController = require('../controllers/user');
 
 /* GET user page */
-router.get('/:id', function(req, res, next) {
-  res.render('user-page', { title: '유저' });
-});
+router.get('/:id', UserController.getUserPageById);
 
-router.post('/login', function(req, res, next) {
-  //TODO: 로그인 라우터
-  res.send('respond with a resource');
-});
+router.post('/login', UserController.postLogin);
 
-router.post('/join', function(req, res, next) {
-  //TODO: 회원가입 라우터
-  res.send('respond with a resource');
-});
+router.post('/join', UserController.postJoin);
 
 module.exports = router;

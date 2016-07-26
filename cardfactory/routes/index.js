@@ -1,15 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var IndexController = require('../controllers/index');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: '메인11', name: 'tee' });
-});
+router.get('/', IndexController.getMainPage);
 
 /* GET join page. */
-router.get('/join', function(req, res, next) {
-  res.render('join-page', { title: '회원가입' });
-});
+router.get('/join', IndexController.getJoinPage);
 
 
 module.exports = router;

@@ -10,6 +10,7 @@ var config = require('./config/index');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var cards = require('./routes/cards');
+var images = require('./routes/images');
 
 var app = express();
 
@@ -47,6 +48,7 @@ if (config.isProduction()) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/cards', cards);
+app.use('/images', cards);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
