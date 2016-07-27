@@ -16,7 +16,7 @@ Card.validate = function(params) {
   var error = null;
 
   if (!_.isString(params.html)) {
-    error = { msg: 'Html is not string.' };
+    error = { msg: 'Html error' };
   }
 
   return error;

@@ -9,14 +9,16 @@ function User() {
  * Validate
  *
  * @param {Object} params
- * @param {String} params.html
+ * @param {String} params.nickname
+ * @param {String} params.email
+ * @param {String} params.password
  * @returns {*}
  */
 User.validate = function(params) {
   var error = null;
 
-  if (!_.isString(params.html)) {
-    error = { msg: 'Html is not string.' };
+  if (!_.isString(params.nickname)) {
+    error = { msg: 'nickname error' };
   }
 
   return error;
