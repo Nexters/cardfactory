@@ -5,7 +5,10 @@ function UserController() {
 }
 
 UserController.getUserPageById = function(req, res, next) {
-  res.render('user-page', { title: '유저' });
+  
+  req.params.id;
+
+  // res.render('user-page', { title: '유저' });
 };
 
 UserController.postLogin = function(req, res, next) {

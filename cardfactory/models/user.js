@@ -31,6 +31,24 @@ User.get = function(params, finalCallback) {
   });
 };
 
+// Get user by id
+User.getById = function(params, finalCallback) {
+
+  var query = "SELECT * FROM user where id = ?";
+
+  pool.getConnection(function(err, connection) {
+
+	connection.query( query, [params.id], function(err, rows) {
+	
+	  finalCallback(err, rows[0]);
+	  connection.release();
+	
+	});
+
+  });
+
+};
+
 
 // Create new user
 User.create = function(params, finalCallback) {
