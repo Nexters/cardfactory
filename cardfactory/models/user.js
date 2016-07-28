@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var pool = require('../db/db').pool;
-
+var bcrypt = require('bcrypt');
+     
 function User() {
 
 }
@@ -42,12 +43,12 @@ User.getById = function(params, finalCallback) {
   
   pool.getConnection(function(err, connection) {
      
-	connection.query( query, [params.id], function(err, rows) {
-	
-	  finalCallback(err, rows[0]);
-	  connection.release();
-	
-	});
+  	connection.query( query, [params.id], function(err, rows) {
+  	
+  	  finalCallback(err, rows[0]);
+  	  connection.release();
+  	
+  	});
 
   });
 
@@ -76,24 +77,16 @@ User.create = function(params, finalCallback) {
   var query = "INSERT INTO user (nickname, email, password) VALUES (?,?,?);";
 
   pool.getConnection(function(err, connection){
-    
-    connection.query( query, [params.nickname, params.email, params.password], function(err, rows){
-      /*
-       correct response
-       {
-          "fieldCount": 0,
-          "affectedRows": 1,
-          "insertId": 24,
-          "serverStatus": 2,
-          "warningCount": 0,
-          "message": "",
-          "protocol41": true,
-          "changedRows": 0
-        }
-      */
-      finalCallback(err, rows);
-      connection.release();
 
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(params.password, salt, function(err, hash) {
+        connection.query( query, [params.nickname, params.email, hash], function(err, rows){
+
+          finalCallback(err, rows);
+          connection.release();
+
+        });   
+      });
     });
 
   });

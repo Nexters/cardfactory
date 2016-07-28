@@ -18,7 +18,8 @@
     "morgan": "~1.7.0",
     "mysql": "^2.11.1",
     "serve-favicon": "~2.3.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "bcrypt":"^0.8.7"
   },
   "devDependencies": {
     "apidoc": "^0.16.1",

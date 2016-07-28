@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var bcrypt = require('bcrypt');
 
 function UserController() {
 
@@ -21,13 +22,9 @@ UserController.postLogin = function(req, res, next) {
 
   	if(err) res.send(err);
   	else {
-  		// 비밀번호 체크
-  		if( result.password === req.body.password ){
-  			res.send({'result':true});
-  		}else{
-  			res.send({'result':false});
-  		}
-
+			bcrypt.compare(req.body.password, result.password, function(err, result) {
+  			res.send({'result':result});
+			});
 		}
   });
 
