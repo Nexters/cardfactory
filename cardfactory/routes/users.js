@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var UserController = require('../controllers/user');
 
+
 /**
  * @api {get} /users Get user page
  * @apiName GetUserPage

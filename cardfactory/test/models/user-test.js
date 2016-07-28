@@ -15,5 +15,14 @@ describe('User', function() {
       done();
     });
   });
-
+ 
+  describe('#getById', function(){
+    it('should get user data by id', function(done){
+      User.getById({'id':1}, function(err, result){
+        expect(err).to.not.exist;
+        expect(result.id).to.equal(1);
+        done();
+      });
+    });
+  });
 });
