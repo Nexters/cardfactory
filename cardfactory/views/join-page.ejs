@@ -5,23 +5,26 @@
 </head>
 <body>
 <h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
-
+<form action="/join" method="POST">
 <div>
-    <label>ID</label>
-    <input id="id_input" type="text"/>
+    <label>Email :</label>
+    <input type="text" id="email_input" name="email_input"> @ <input type="text" id="email_input2" name="email_input2">
 </div>
 <div>
-    <label>PW</label>
-    <input id="pw_input" type="text"/>
+    <label>Nickname :</label>
+    <input id="nick_input" name="nick_input" type="text" placeholder="3~12자"/>
 </div>
 <div>
-    <label>PW 확인</label>
-    <input id="pw_confirm_input" type="text"/>
+    <label>PW :</label>
+    <input id="pw_input" name="pw_input" type="password" placeholder="6자이상"/>
 </div>
-
-<div id="join_btn">Join</div>
+<div>
+    <label>PW 확인 :</label>
+    <input id="pw_confirm_input" name="pw_confirm_input" type="password" placeholder="비밀번호 확인"/>
+</div>
+<div><input type="submit" id="join_btn" value="Join"></div>
 
 <script type="text/javascript" src="join.bundle.js" charset="utf-8"></script>
 </body>
+</form>
 </html>
