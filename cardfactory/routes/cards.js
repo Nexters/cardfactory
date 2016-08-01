@@ -19,10 +19,12 @@ router.get('/', CardController.getCardListPage);
 router.get('/:id', CardController.getCardPageById);
 
 /**
- * @api {get} /cards/edit Get Card Edit Page
+ * @api {get} /cards/:id/edit Get Card Edit Page
  * @apiName GetCardEditPage
  * @apiGroup Card
+ *
+ * @apiParam {String} id Card unique id
  */
-router.get('/edit', CardController.getCardEditPage);
+router.get('/:id/edit', CardController.getCardEditPage);
 
 module.exports = router;
