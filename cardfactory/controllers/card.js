@@ -1,5 +1,5 @@
 var Card = require('../models/card');
-var Session = require('../service/session');
+var Session = require('../services/session');
 
 function CardController() {
 

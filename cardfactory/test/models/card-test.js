@@ -28,13 +28,24 @@ describe('Card', function() {
         source: 'testsource',
         font: 'Nanum Gothic',
         content: 'textcontent',
-        userId: 'testuser',
+        userId: '1',
         cardTypeId: '1'
       };
       //when
       Card.create(card, function(err, result) {
         //then
-
+        expect(err).to.not.exist;
+        expect(result.userId).to.eql(1);
+        expect(result.cardTypeId).to.eql(1);
+        expect(result.content).to.eql('textcontent');
+        expect(result.font).to.eql('Nanum Gothic');
+        expect(result.img).to.eql('testimg');
+        expect(result.source).to.eql('testsource');
+        expect(result.hitsCount).to.equal(0);
+        expect(result.likesCount).to.equal(0);
+        expect(result.createdDate).to.exist;
+        expect(result.updatedDate).to.exist;
+        done();
       });
 
     });

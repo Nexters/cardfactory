@@ -1,5 +1,6 @@
 var _ = require('underscore');
 var async = require('async');
+var validator = require('validator');
 
 var pool = require('../db/db').pool;
 
@@ -11,7 +12,8 @@ function Card() {
  * Validate
  *
  * @param {Object} params
- * @param {String} params.cardTypeId
+ * @param {Number} params.userId
+ * @param {Number} params.cardTypeId
  * @param {String} params.font
  * @param {String} params.img
  * @param {String} params.content
@@ -20,7 +22,10 @@ function Card() {
  * @returns {*}
  */
 Card.validate = function(params) {
-  if (!_.isString(params.cardTypeId)) {
+  if (!validator.isInt(params.userId)) {
+    return 'userId error';
+  }
+  if (!validator.isInt(params.cardTypeId)) {
     return 'cardTypeId error';
   }
   if (!_.isString(params.font)) {
@@ -57,18 +62,32 @@ Card.create = function(params, finalCallback) {
   if (error) {
     return finalCallback(error);
   }
+  async.waterfall([
+    function(callback) {
+      var query = "INSERT INTO card (img, source, font, content, userId, cardTypeId) VALUES (?,?,?,?,?,?);";
+      var insertItem = [
+        params.img,
+        params.source,
+        params.font,
+        params.content,
+        params.userId,
+        params.cardTypeId
+      ];
 
-  var query = "INSERT INTO card (img, source, font, content, userId, cardTypeId) VALUES (?,?,?,?,?,?);";
-  var insertItem = [
-    params.img,
-    params.source,
-    params.font,
-    params.content,
-    params.userId,
-    params.cardTypeId
-  ];
-
-  pool.query(query, insertItem, finalCallback);
+      pool.query(query, insertItem, function(err, result) {
+        callback(err, result);
+      });
+    },
+    function(result, callback) {
+      var insertId = result.insertId;
+      var query = "SELECT * FROM card WHERE id = ?;";
+      pool.query(query, [insertId], function(err, rows) {
+        callback(err, rows[0]);
+      });
+    }
+  ], function (err, result) {
+    finalCallback(err, result);
+  });
 };
 
 // Update card
