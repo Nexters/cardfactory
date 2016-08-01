@@ -10,6 +10,7 @@ define([
     this.template = template;
 
     this.$container = $('#card_container');
+    this.$menuContainer = $('#menu_container');
     this.$cardItem = $('#card_item');
     this.$content = $('#card_content');
     this.$source = $('#card_source');
@@ -23,6 +24,9 @@ define([
       draw: function () {
         self.$container.html(self.template.draw(params));
         self.applyStyle();
+      },
+      drawMenu: function () {
+        self.$menuContainer.html(self.template.drawMenu(params));
       }
     };
 

@@ -32,10 +32,16 @@ define([
       +		'<input type="text" id="card_content">{{content}}</input>'
       +		'<input type="text" id="card_source">{{source}}</input>'
       +	'</div>';
+
+    this.imgMenuTemplate = '';
+    this.cardTypeMenuTemplate = '';
+    this.fontMenuTemplate = '';
+    this.fontSizeMenuTemplate = '';
   }
 
   CardTemplate.prototype.draw = function (data) {
     var view = '';
+    // TODO: 카드 타입에 따라 템플릿 다르게 그려줘야함!
     var template = this.defaultTemplate;
 
     template = template.replace('{{cardTypeId}}', data.cardTypeId || '');
@@ -47,6 +53,22 @@ define([
     view = view + template;
 
     return view;
+  };
+
+  CardTemplate.prototype.drawMenu = function(params) {
+    switch(params.menuType) {
+      case 'img':
+        break;
+      case 'cardType':
+        break;
+      case 'font':
+        break;
+      case 'fontSize':
+        break;
+      default:
+        break;
+    }
+
   };
 
   return CardTemplate;
