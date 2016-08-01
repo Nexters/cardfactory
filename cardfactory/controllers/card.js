@@ -26,6 +26,7 @@ CardController.getCardEditPage = function(req, res, next) {
 
 CardController.getUserCardPage = function(req, res, next) {
   res.render('card-usercard-page', { title: '사용자 작성 카드 페이지' });
+};
 
 CardController.postCard = function(req, res, next) {
   if (!Session.hasSession(req)) {
