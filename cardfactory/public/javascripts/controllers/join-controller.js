@@ -18,51 +18,69 @@ define([
   }
 
   JoinController.prototype.validate = function(data) {
-    //TODO: 데이터 정합성 검사
+    var self = this; 
+    var errorStatus=true;
     //Email
     var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
     if(data['email']== ""){
-      //console.log("이메일이 빈칸");
-      return false;
+      var err="빈칸을 입력하세요!"; 
+      var type="email";
+      self.view.showError(err,type);
+      errorStatus=false;
     }
     if(!data['email'].match(regExp))
     {
-      //console.log("형식에 맞지 않는 이메일");
-      return false;
+      var err="형식이 올바르지 않습니다.";
+      var type="email"; 
+      self.view.showError(err,type);
+      errorStatus=false;
     }
 
     //Nickname
      if(data['nickname']==""){
-      //console.log("닉네임이 빈칸");
-      return false;
+      var err="빈칸을 입력하세요!";
+      var type="nickname";
+      self.view.showError(err,type);
+      errorStatus=false;
     }
 
     if(data['nickname'].length<3 || data['nickname'].length>12){
-      //console.log("닉네임길이 error");
-      return false;
+      var err="길이는 3~12자여야 합니다.";
+      var type="nickname";
+      self.view.showError(err,type);
+      errorStatus=false;
     }
 
     //PW
-
     if(data['pw']==""){
-      //console.log("pw 빈칸");
-      return false;
+      var err="빈칸을 입력하세요!";
+      var type="pw";
+      self.view.showError(err,type);
+      errorStatus=false;
     }
     if(data['pw'].length<6 || data['pw'].length>50){
-      //console.log("pw길이 error");
-      return false;
+      var err="길이가 6자 이상이여야 합니다.";
+      var type="pw";
+      self.view.showError(err,type);
+      errorStatus=false;
     }
     if(data['pw']!=data['pw_confirm']){
-      //console.log("pw가 pw_confirm이랑 다름");
-      return false;
+      var err="password가 일치하지 않습니다.";
+      var type="pw_confirm";
+      self.view.showError(err,type);
+      errorStatus=false;
     }
-    return true;
+    return errorStatus;
   };
 
   JoinController.prototype.postJoin = function(data) {
     // TODO: 회원가입 처리
     //HttpUtil.postData()
-    //에러 처리 self.view.showError(err)
+    /*HttpUtil.postData('/',data, function() {
+    alert('회원가입 처리 성공!');
+    });*/
+    //에러 처리 
+    //self.view.showError(err);
   };
 
   JoinController.prototype.join = function(data) {
@@ -70,7 +88,11 @@ define([
     var self = this;    
     if (self.validate(data)) {
       console.log("successful!");
+      self.postJoin(data);
       // TODO: 회원가입 요청
+    }
+    else{
+
     }
   };
 
