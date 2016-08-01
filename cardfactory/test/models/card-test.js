@@ -51,6 +51,21 @@ describe('Card', function() {
   });
 
   describe('#deleteById', function() {
+    it('should not delete card by id.', function(done) {
+      //given
+      var params = {
+        id: '2',
+        userId: '1'
+      };
+      //when
+      Card.deleteById(params, function(err, result) {
+        //then
+        expect(err).to.not.exist;
+        expect(result.affectedRows).to.equal(0);
+        done();
+      });
+    });
+
     it('should delete card by id.', function(done) {
       //given
       var params = {
@@ -61,6 +76,7 @@ describe('Card', function() {
       Card.deleteById(params, function(err, result) {
         //then
         expect(err).to.not.exist;
+        expect(result.affectedRows).to.equal(1);
         done();
       });
     });
