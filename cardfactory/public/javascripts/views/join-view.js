@@ -19,7 +19,7 @@ define([
     if (event === 'join') {
       self.$joinBtn.click(function() {
          var data = {
-          email: self.$emailInput.val()+"@"+self.$emailInput2.val(),
+          email: self.$emailInput.val(),
           nickname: self.$nickInput.val(),
           pw: self.$pwInput.val()
         };

@@ -17,6 +17,7 @@ define([
   JoinController.prototype.join = function(data) {
     var self = this;
     console.log(data);
+    alert(data);
     
   };
 
