@@ -9,7 +9,7 @@ UserController.getUserPageById = function(req, res, next) {
   
   User.getById(req.params, function(err, result){
 
-	 	if(err) res.send(err);
+	 	if(err) res.status(400).send("NO_MATCH_USER");
 	 	else res.render('user-page',result);
   
   });
@@ -23,8 +23,10 @@ UserController.postLogin = function(req, res, next) {
   	if(err) res.send(err);
   	else {
 			bcrypt.compare(req.body.password, result.password, function(err, result) {
-  			res.send({'result':result});
-			});
+				if(err) res.status(400).send("PASSWORD_ENCRYPT_ERROR");
+				else if(result)	res.status(200).send("SUCCESS");
+				else res.status(400).send("PASSWORD_NOT_MATCHED");
+  		});
 		}
   });
 
@@ -34,8 +36,8 @@ UserController.postJoin = function(req, res, next) {
 
 	User.create(req.body, function(err, result){
 
-		if(err) res.send(err);
-		else res.send(result);
+		if(err) res.status(400).send("CANNOT_CREATE_USER");
+		else res.status(200).send("SUCCESS");
 		
 	});
 };

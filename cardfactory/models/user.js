@@ -1,7 +1,8 @@
 var _ = require('underscore');
 var pool = require('../db/db').pool;
 var bcrypt = require('bcrypt');
-     
+var async = require('async');
+
 function User() {
 
 }
@@ -27,30 +28,34 @@ User.validate = function(params) {
   return error;
 };
 
-// Get user
-User.get = function(params, finalCallback) {
-  var query = "SELECT * FROM user;";
-
-  pool.query(query, function (err, result) {
-    finalCallback(err, result);
-  });
-};
-
 // Get user by id
 User.getById = function(params, finalCallback) {
 
   var query = "SELECT * FROM user WHERE id = ?;";
   
-  pool.getConnection(function(err, connection) {
-     
-  	connection.query( query, [params.id], function(err, rows) {
-  	
-  	  finalCallback(err, rows[0]);
-  	  connection.release();
-  	
-  	});
+  async.waterfall([
+    function(callback){ 
+    
+      pool.getConnection(function(err, connection){
+        if(err) callback(err);
+        else    callback(null, connection);
+      });
+    
+    },
+    function( connection, callback){
 
+      connection.query( query, [params.id], function(err, rows) {
+        if(err) callback(err);
+        else    callback(null, rows[0]);
+        connection.release();
+      });
+
+    }
+  ], function(err, row){
+    if(err) finalCallback(err, null);
+    else    finalCallback(err, row);
   });
+
 
 };
 
@@ -59,16 +64,29 @@ User.getByEmail = function(params, finalCallback) {
   
   var query = "SELECT * FROM user WHERE email = ?;";
 
-  pool.getConnection(function(err, connection){
+  async.waterfall([
+    function(callback){ 
     
-    connection.query( query, [params.email], function(err, rows){
+      pool.getConnection(function(err, connection){
+        if(err) callback(err);
+        else    callback(null, connection);
+      });
+    
+    },
+    function( connection, callback){
 
-      finalCallback(err, rows[0]);
-      connection.release();
+      connection.query( query, [params.email], function(err, rows) {
+        if(err) callback(err);
+        else    callback(null, rows[0]);
+        connection.release();
+      });
 
-    });
-
+    }
+  ], function(err, row){
+    if(err) finalCallback(err, null);
+    else    finalCallback(err, row);
   });
+
 };
 
 // Create new user
@@ -76,23 +94,39 @@ User.create = function(params, finalCallback) {
   
   var query = "INSERT INTO user (nickname, email, password) VALUES (?,?,?);";
 
-  pool.getConnection(function(err, connection){
-
-    bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(params.password, salt, function(err, hash) {
-        connection.query( query, [params.nickname, params.email, hash], function(err, rows){
-
-          finalCallback(err, rows);
-          connection.release();
-
-        });   
+  async.waterfall([
+    function(callback){ 
+    
+      pool.getConnection(function(err, connection){
+        if(err) callback(err);
+        else    callback(null, connection);
       });
-    });
+    
+    },
+    function(connection, callback){
+      bcrypt.genSalt(10, function(err, salt){
+        bcrypt.hash(params.password, salt, function(err, hash){
+          if(err) callback(err);
+          else    callback(null, connection, hash);
+        });
+        if(err) callback(err);
+      })
+    },
+    function( connection, hash, callback){
 
+      connection.query( query, [params.nickname, params.email, hash], function(err, rows) {
+        if(err) callback(err);
+        else    callback(null, rows);
+        connection.release();
+      });
+
+    }
+  ], function(err, rows){
+    if(err) finalCallback(err, null);
+    else    finalCallback(err, rows);
   });
 
 };
-
 // Update user
 User.update = function(params, finalCallback) {
 
