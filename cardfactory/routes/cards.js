@@ -46,6 +46,8 @@ router.get('/:userId', CardController.getUserCardPage);
  * @apiParam {String} img Img
  * @apiParam {String} content Content
  * @apiParam {String} source Source
+ *
+ * @apiSuccess {Object} card Card object
  */
 router.post('/', CardController.postCard);
 
