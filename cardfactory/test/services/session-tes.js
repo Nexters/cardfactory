@@ -11,7 +11,7 @@ describe('Session', function() {
     it('should get true when req.session.id is exist.', function() {
       var req = {
         session: {
-          id: 1
+          userId: 1
         }
       };
       expect(Session.hasSession(req)).to.equal(true);
@@ -22,12 +22,12 @@ describe('Session', function() {
     it('should get session data.', function() {
       var req = {
         session: {
-          id: 1,
+          userId: 1,
           nickname: 'abc123'
         }
       };
       expect(Session.getSession(req)).to.eql({
-        id: 1,
+        userId: 1,
         nickname: 'abc123'
       });
     });
@@ -37,7 +37,7 @@ describe('Session', function() {
     it('should get session id.', function() {
       var req = {
         session: {
-          id: 1,
+          userId: 1,
           nickname: 'abc123'
         }
       };
@@ -51,12 +51,12 @@ describe('Session', function() {
         session: {}
       };
       var user = {
-        id: 2,
+        userId: 2,
         nickname: 'def456'
       };
       Session.registerSession(req, user);
       expect(req.session).to.eql({
-        id: 2,
+        userId: 2,
         nickname: 'def456'
       });
     });
@@ -66,10 +66,10 @@ describe('Session', function() {
     it('should destroy session.', function() {
       var req = {
         session: {
-          id: 1,
+          userId: 1,
           nickname: 'abc123',
           destroy: function() {
-            delete this.id;
+            delete this.userId;
             delete this.nickname;
             delete this.destroy;
           }

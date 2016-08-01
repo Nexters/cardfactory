@@ -27,4 +27,17 @@ router.get('/:id', CardController.getCardPageById);
  */
 router.get('/:id/edit', CardController.getCardEditPage);
 
+/**
+ * @api {post} /cards Post Card
+ * @apiName PostCard
+ * @apiGroup Card
+ *
+ * @apiParam {String} cardTypeId Card type id
+ * @apiParam {String} font Font
+ * @apiParam {String} img Img
+ * @apiParam {String} content Content
+ * @apiParam {String} source Source
+ */
+router.post('/', CardController.postCard);
+
 module.exports = router;
