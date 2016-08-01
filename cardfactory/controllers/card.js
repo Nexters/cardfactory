@@ -19,7 +19,7 @@ CardController.getCardPageById = function(req, res, next) {
 };
 
 CardController.getCardEditPage = function(req, res, next) {
-
+  console.log("CARD EDIT");
   res.render('card-edit-page', { title: '카드 수정 페이지' });
 };
 
