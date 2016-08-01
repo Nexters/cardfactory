@@ -28,5 +28,9 @@ define([
     }
   };
 
+  JoinView.prototype.showError = function() {
+
+  };
+
   return JoinView;
 });
