@@ -75,10 +75,18 @@ define([
 
   JoinController.prototype.postJoin = function(data) {
     // TODO: 회원가입 처리
-    //HttpUtil.postData()
-    /*HttpUtil.postData('/',data, function() {
-    alert('회원가입 처리 성공!');
-    });*/
+    var _data={
+      nickname : data['nickname'],
+      email : data['email'],
+      password : data['pw']
+    };
+    HttpUtil.postData('/users/join',_data,function(err, result) {
+      if(err)
+      {
+        alert(err);
+      }
+      console.log(result);
+    });
     //에러 처리 
     //self.view.showError(err);
   };
@@ -87,12 +95,9 @@ define([
     console.log(data);
     var self = this;    
     if (self.validate(data)) {
-      console.log("successful!");
+      //console.log("successful!");
       self.postJoin(data);
       // TODO: 회원가입 요청
-    }
-    else{
-
     }
   };
 
