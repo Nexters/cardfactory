@@ -24,13 +24,28 @@ CardController.getCardEditPage = function(req, res, next) {
   res.render('card-edit-page', { title: '카드 수정 페이지' });
 };
 
-CardController.postCard = function(req, res, next) {
+CardController.postCard = function(req, res) {
   if (!Session.hasSession(req)) {
     res.status(500).send('Not login');
     return;
   }
   req.body.userId = Session.getSessionId(req);
   Card.create(req.body, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+      return;
+    }
+    res.status(200).send(result);
+  });
+};
+
+CardController.deleteCardById = function(req, res) {
+  if (!Session.hasSession(req)) {
+    res.status(500).send('Not login');
+    return;
+  }
+  req.params.userId = Session.getSessionId(req);
+  Card.deleteById(req.params, function(err, result) {
     if (err) {
       res.status(400).send(err);
       return;

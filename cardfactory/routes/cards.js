@@ -42,4 +42,13 @@ router.get('/:id/edit', CardController.getCardEditPage);
  */
 router.post('/', CardController.postCard);
 
+/**
+ * @api {delete} /cards/:id
+ * @apiName DeleteCard
+ * @apiGroup Card
+ *
+ * @apiParam {String} id Card unique id
+ */
+router.delete('/:id', CardController.deleteCardById);
+
 module.exports = router;

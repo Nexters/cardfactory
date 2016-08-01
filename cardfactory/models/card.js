@@ -89,14 +89,12 @@ Card.create = function(params, finalCallback) {
   });
 };
 
-// Update card
-Card.update = function(params, finalCallback) {
-
-};
-
 // Delete card
-Card.delete = function(params, finalCallback) {
-
+Card.deleteById = function(params, finalCallback) {
+  var query = "DELETE from card where id=? AND userId=?";
+  pool.query(query, [params.id, params.userId], function(err, result) {
+    finalCallback(err, result);
+  });
 };
 
 module.exports = Card;

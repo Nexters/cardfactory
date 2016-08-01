@@ -47,7 +47,23 @@ describe('Card', function() {
         expect(result.updatedDate).to.exist;
         done();
       });
-
     });
   });
+
+  describe('#deleteById', function() {
+    it('should delete card by id.', function(done) {
+      //given
+      var params = {
+        id: '1',
+        userId: '1'
+      };
+      //when
+      Card.deleteById(params, function(err, result) {
+        //then
+        expect(err).to.not.exist;
+        done();
+      });
+    });
+  });
+
 });
