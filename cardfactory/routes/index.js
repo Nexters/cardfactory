@@ -9,7 +9,11 @@ router.get('/', IndexController.getMainPage);
 router.get('/join', IndexController.getJoinPage);
 
 
-router.get('/testerror', function(req, res) {
+router.get('/test/success', function(req, res) {
+  res.status(200).send("SUCCESS");
+});
+
+router.get('/test/error', function(req, res) {
   res.status(400).send("ERROR TEXT");
 });
 
