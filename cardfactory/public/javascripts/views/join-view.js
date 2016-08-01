@@ -11,6 +11,7 @@ define([
     this.$emailInput = $('#email_input');
     this.$nickInput = $('#nick_input');
     this.$pwInput = $('#pw_input');
+    this.$pwConfirmInput= $('#pw_confirm_input');
   } 
 
   JoinView.prototype.bind = function(event, handler) {
@@ -20,7 +21,8 @@ define([
          var data = {
           email: self.$emailInput.val(),
           nickname: self.$nickInput.val(),
-          pw: self.$pwInput.val()
+          pw: self.$pwInput.val(),
+          pw_confirm: self.$pwConfirmInput.val()
         };
         handler(data);
       });
