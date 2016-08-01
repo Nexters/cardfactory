@@ -73,7 +73,6 @@ Card.create = function(params, finalCallback) {
         params.userId,
         params.cardTypeId
       ];
-
       pool.query(query, insertItem, function(err, result) {
         callback(err, result);
       });
