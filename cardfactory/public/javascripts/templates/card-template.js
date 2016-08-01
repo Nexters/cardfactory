@@ -28,19 +28,21 @@ define([
 
   function CardTemplate() {
     this.defaultTemplate
-      =	'<div data-theme="{{theme}}">'
-      +		'<label>{{title}}</label>'
-      +		'<p>{{text}}</p>'
+      =	'<div id="card_item" data-type="{{cardTypeId}}" data-font="{{font}}" data-img="{{img}}">'
+      +		'<input type="text" id="card_content">{{content}}</input>'
+      +		'<input type="text" id="card_source">{{source}}</input>'
       +	'</div>';
   }
 
-  CardTemplate.prototype.show = function (data) {
+  CardTemplate.prototype.draw = function (data) {
     var view = '';
     var template = this.defaultTemplate;
 
-    template = template.replace('{{theme}}', data.theme);
-    template = template.replace('{{title}}', escape(data.title));
-    template = template.replace('{{text}}', escape(data.text));
+    template = template.replace('{{cardTypeId}}', data.cardTypeId || '');
+    template = template.replace('{{font}}', data.font || '');
+    template = template.replace('{{img}}', data.img || '');
+    template = template.replace('{{content}}', escape(data.content) || '');
+    template = template.replace('{{source}}', escape(data.source) || '');
 
     view = view + template;
 

@@ -20,4 +20,23 @@ describe('Card', function() {
     });
   });
 
+  describe('#create', function() {
+    it('should create card.', function(done) {
+      //given
+      var card = {
+        img: 'testimg',
+        source: 'testsource',
+        font: 'Nanum Gothic',
+        content: 'textcontent',
+        userId: 'testuser',
+        cardTypeId: '1'
+      };
+      //when
+      Card.create(card, function(err, result) {
+        //then
+
+      });
+
+    });
+  });
 });

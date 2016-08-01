@@ -9,26 +9,29 @@ define([
   function CardView(template) {
     this.template = template;
 
-    this.$container = $('#container');
-    this.$theme = $('#theme');
-    this.$title = $('#title');
-    this.$text = $('#text');
+    this.$container = $('#card_container');
+    this.$cardItem = $('#card_item');
+    this.$content = $('#card_content');
+    this.$source = $('#card_source');
 
     this.$saveCardBtn = $('#save_card_btn');
   }
 
-  CardView.prototype.render = function(viewCmd, parameter) {
+  CardView.prototype.render = function(viewCmd, params) {
     var self = this;
     var viewCommands = {
-      showCard: function () {
-        //TODO: 카드 저장된 이후에 보여주는 메서드. 데이터 템플릿으로 넘겨서 화면 그려줌
-        self.$container.html(self.template.show(parameter));
+      draw: function () {
+        self.$container.html(self.template.draw(params));
+        self.applyStyle();
       }
     };
 
     viewCommands[viewCmd]();
   };
 
+  CardView.prototype.applyStyle = function() {
+
+  };
 
   CardView.prototype.bind = function(event, handler) {
     var self = this;
@@ -36,9 +39,11 @@ define([
       self.$saveCardBtn.click(function() {
         // TODO: 데이터 가져오기
         var data = {
-          theme: self.$theme.find('active'),
-          title: self.$title.val(),
-          text: self.$text.val()
+          cardTypeId: self.$cardItem.data('type'),
+          font: self.$cardItem.data('font'),
+          img: self.$cardItem.data('img'),
+          content: self.$content.val(),
+          source: self.$source.val()
         };
         handler(data);
       });
