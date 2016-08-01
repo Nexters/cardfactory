@@ -28,6 +28,15 @@ router.get('/:id', CardController.getCardPageById);
 router.get('/:id/edit', CardController.getCardEditPage);
 
 /**
+ * @api {get} /cards/:id Get User Card Page
+ * @apiName GetUserCardPage
+ * @apiGroup Card
+ *
+ * @apiParam {String} id User unique id
+ */
+router.get('/:userId', CardController.getUserCardPage);
+
+/**
  * @api {post} /cards Post Card
  * @apiName PostCard
  * @apiGroup Card
@@ -37,7 +46,18 @@ router.get('/:id/edit', CardController.getCardEditPage);
  * @apiParam {String} img Img
  * @apiParam {String} content Content
  * @apiParam {String} source Source
+ *
+ * @apiSuccess {Object} card Card object
  */
 router.post('/', CardController.postCard);
+
+/**
+ * @api {delete} /cards/:id
+ * @apiName DeleteCard
+ * @apiGroup Card
+ *
+ * @apiParam {String} id Card unique id
+ */
+router.delete('/:id', CardController.deleteCardById);
 
 module.exports = router;

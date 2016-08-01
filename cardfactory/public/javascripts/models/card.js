@@ -1,8 +1,10 @@
 //card.js
 define([
-  '../bower_components/underscore/underscore'
+  '../bower_components/underscore/underscore',
+  '../utils/http-util'
 ], function (
-  _
+  _,
+  HttpUtil
 ) {
   'use strict';
 
@@ -48,8 +50,7 @@ define([
       source: data.source
     };
 
-    //TODO: 서버에 저장 요청
-    callback(newCard)
+    HttpUtil.postData('/cards', newCard, callback);
   };
 
   Card.prototype.validate = function(data) {

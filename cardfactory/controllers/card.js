@@ -1,5 +1,5 @@
 var Card = require('../models/card');
-var Session = require('../service/session');
+var Session = require('../services/session');
 
 function CardController() {
 
@@ -24,6 +24,11 @@ CardController.getCardEditPage = function(req, res, next) {
   res.render('card-edit-page', { title: '카드 수정 페이지' });
 };
 
+
+CardController.getUserCardPage = function(req, res, next) {
+  res.render('card-usercard-page', { title: '사용자 작성 카드 페이지' });
+};
+
 CardController.postCard = function(req, res, next) {
   if (!Session.hasSession(req)) {
     res.status(500).send('Not login');
@@ -31,6 +36,21 @@ CardController.postCard = function(req, res, next) {
   }
   req.body.userId = Session.getSessionId(req);
   Card.create(req.body, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+      return;
+    }
+    res.status(200).send(result);
+  });
+};
+
+CardController.deleteCardById = function(req, res) {
+  if (!Session.hasSession(req)) {
+    res.status(500).send('Not login');
+    return;
+  }
+  req.params.userId = Session.getSessionId(req);
+  Card.deleteById(req.params, function(err, result) {
     if (err) {
       res.status(400).send(err);
       return;

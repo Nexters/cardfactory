@@ -12,6 +12,10 @@ define([
     this.$nickInput = $('#nick_input');
     this.$pwInput = $('#pw_input');
     this.$pwConfirmInput= $('#pw_confirm_input');
+    this.$pwConfirmError= $('#pw_confirm_error');
+    this.$pwError=$('#pw_error');
+    this.$nickError=$('#nick_error');
+    this.$emailError=$('#email_error');
   } 
 
   JoinView.prototype.bind = function(event, handler) {
@@ -29,7 +33,23 @@ define([
     }
   };
 
-  JoinView.prototype.showError = function() {
+  JoinView.prototype.showError = function(err, type) {
+    var self=this;
+      if(type==="email"){
+        self.$emailError.text(err);
+      }
+      if(type==="nickname")
+      {
+        self.$nickError.text(err);
+      }
+      if(type==="pw"){
+        self.$pwError.text(err);
+      }
+      if(type==="pw_confirm"){
+        self.$pwConfirmError.text(err);
+      }
+
+
 
   };
 
