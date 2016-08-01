@@ -15,10 +15,10 @@ define([
       url: url,
       type: 'GET',
       data: params,
-      error: function errorHandler(jqXHR, textStatus, errorThrown) {
-        callback("Error");
+      error: function errorHandler(jqXHR) {
+        callback(jqXHR.responseText || "Error");
       },
-      success: function successHandler(data, status, xhr) {
+      success: function successHandler(data) {
         callback(null, data)
       }
     });
@@ -31,10 +31,10 @@ define([
       contentType: 'application/json;charset=UTF-8',
       dataType: 'json',
       data: JSON.stringify(params),
-      error: function errorHandler(jqXHR, textStatus, errorThrown) {
-        callback("Error");
+      error: function errorHandler(jqXHR) {
+        callback(jqXHR.responseText || "Error");
       },
-      success: function successHandler(data, status, xhr) {
+      success: function successHandler(data) {
         callback(null, data)
       }
     });
@@ -47,10 +47,10 @@ define([
       contentType: 'application/json;charset=UTF-8',
       dataType: 'json',
       data: JSON.stringify(params),
-      error: function errorHandler(jqXHR, textStatus, errorThrown) {
-        callback("Error");
+      error: function errorHandler(jqXHR) {
+        callback(jqXHR.responseText || "Error");
       },
-      success: function successHandler(data, status, xhr) {
+      success: function successHandler(data) {
         callback(null, data)
       }
     });
@@ -63,10 +63,10 @@ define([
       contentType: 'application/json;charset=UTF-8',
       dataType: 'json',
       data: JSON.stringify(params),
-      error: function errorHandler(jqXHR, textStatus, errorThrown) {
-        callback("Error");
+      error: function errorHandler(jqXHR) {
+        callback(jqXHR.responseText || "Error");
       },
-      success: function successHandler(data, status, xhr) {
+      success: function successHandler(data) {
         callback(null, data)
       }
     });
