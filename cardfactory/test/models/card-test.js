@@ -21,6 +21,23 @@ describe('Card', function() {
   });
 
   describe('#create', function() {
+    it('should fail create card.', function(done) {
+      //given
+      var card = {
+        source: 'testsource',
+        font: 'Nanum Gothic',
+        content: 'textcontent',
+        userId: '1',
+        cardTypeId: '1'
+      };
+      //when
+      Card.create(card, function(err) {
+        //then
+        expect(err).to.equal('img error');
+        done();
+      });
+    });
+
     it('should create card.', function(done) {
       //given
       var card = {
