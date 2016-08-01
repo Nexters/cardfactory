@@ -10,7 +10,7 @@ var gulp = require('gulp'),
   spawn = require('child_process').spawn;
 
 var node;
-var serverJsFiles = ['./config/**/*.js', './routes/**/*.js', './models/**/*.js', './db/**/*.js', './controllers/**/*.js'];
+var serverJsFiles = ['./config/**/*.js', './routes/**/*.js', './models/**/*.js', './db/**/*.js', './controllers/**/*.js', './services/**/*.js'];
 var clientJsFiles = ['public/javascripts/**/*.js'];
 var cssFiles = ['public/stylesheets/**/*.css'];
 var apidocConf = {
