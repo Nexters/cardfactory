@@ -28,6 +28,15 @@ router.get('/:id', CardController.getCardPageById);
 router.get('/:id/edit', CardController.getCardEditPage);
 
 /**
+ * @api {get} /cards/:id Get User Card Page
+ * @apiName GetUserCardPage
+ * @apiGroup Card
+ *
+ * @apiParam {String} id User unique id
+ */
+router.get('/:userId', CardController.getUserCardPage);
+
+/**
  * @api {post} /cards Post Card
  * @apiName PostCard
  * @apiGroup Card

@@ -44,6 +44,11 @@ Card.validate = function(params) {
 };
 
 // Get card
+/*
+ 카드를 일정 수만 가져오도록 코딩할 것.
+ params.pageNum = 1; 
+ params.perPage = 20;
+*/
 Card.get = function(params, finalCallback) {
   var query = "SELECT * FROM card";
 
@@ -52,9 +57,58 @@ Card.get = function(params, finalCallback) {
   });
 };
 
+// Get card by Id
 Card.getById = function(params, finalCallback) {
-  // TODO: id로 카드 가져와야함!
+  var query = "SELECT * FROM card WHERE Id = ?;";
+
+  async.waterfall([
+    function(callback){
+
+      pool.getConnection(function(err, connection){
+        if(err) callback(err);
+        else    callback(null, connection);
+      });
+    },
+    function(connection, callback){
+
+      connection.query( query, [params.id], function(err, rows){
+        if(err) callback(err);
+        else    callback(null, rows[0]);
+        connection.release();
+      });
+    }
+    ], function(err, row){
+      if(err) finalCallback(err, null);
+      else    finalCallback(err, row);
+    });
 };
+
+// Get card by Id Order by UpdatedDate
+Card.getUserCard - function(params, finalCallback) {
+  var query = "SELECT * FROM card WHERE userId = ? ORDER BY updatedDate";
+
+  async.waterfall([
+    function(callback){
+
+      pool.getConnection(function(err, connection){
+        if(err) callback(err);
+        else    callback(null, connection);
+      });
+    },
+    function(connection, callback){
+
+      connection.query( query, [params.id], function(err, rows){    // params.id 가 유저의 id
+        if(err) callback(err);
+        else    callback(null, rows[0]);
+        connection.release();
+      });
+    }
+    ], function(err, row){
+      if(err) finalCallback(err, null);
+      else    finalCallback(err, row);
+    });
+};
+
 
 // Create new card
 Card.create = function(params, finalCallback) {
