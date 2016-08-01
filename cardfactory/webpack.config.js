@@ -5,6 +5,7 @@ module.exports = {
     'main': './main.js',
     'join': './join.js',
     'card': './card.js',
+    'card-list': './card-list.js',
     'card-edit': './card-edit.js'
   },
   output: {
