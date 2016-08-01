@@ -1,10 +1,10 @@
 //main.js
 define([
-  './bower_components/bootstrap/dist/js/bootstrap',
+  './bower_components/jquery/dist/jquery',
   './controllers/login-controller',
   './views/login-view'
 ], function (
-  Bootstrap,
+  $,
   LoginController,
   LoginView
 ) {
