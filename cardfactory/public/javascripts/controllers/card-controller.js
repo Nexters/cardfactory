@@ -22,9 +22,12 @@ define([
 
   CardController.prototype.addCard = function(data) {
     var self = this;
-    self.model.create(data, function(card) {
-      if (card) {
-        //TODO: 카드 페이지로 이동
+    self.model.create(data, function(err, card) {
+      if (err) {
+        return alert(err);
+      }
+      if (card && card.id) {
+        location.href = '/cards/' + card.id;
       }
     });
   };
