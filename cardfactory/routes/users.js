@@ -33,13 +33,21 @@ router.post('/login', UserController.postLogin);
 router.post('/join', UserController.postJoin);
 
 /**
- * @api {post} /users join
+ * @api {put} /users update user
  * @apiName UserJoin
  * @apiGroup User
  *
  * @apiParam {String} nickname User nickname
  * @apiParam {String} email User email
- * @apiParam {String} password User User password
+ * @apiParam {String} password User User new password
+ */
+router.put('/:id', UserController.putUser);
+
+/**
+ * @api {get} /users logout
+ * @apiName UserLogout
+ * @apiGroup User
+ *
  */
 router.post('/logout', UserController.getLogout);
 

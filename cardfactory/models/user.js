@@ -29,7 +29,7 @@ User.validate = function(params) {
 };
 
 // Get user by id
-User.getById = function(params, finalCallback) {
+User.getById = function(userId, finalCallback) {
 
   var query = "SELECT * FROM user WHERE id = ?;";
   
@@ -44,7 +44,7 @@ User.getById = function(params, finalCallback) {
     },
     function( connection, callback){
 
-      connection.query( query, [params.id], function(err, rows) {
+      connection.query( query, [userId], function(err, rows) {
         if(err) callback(err);
         else    callback(null, rows[0]);
         connection.release();
@@ -89,6 +89,43 @@ User.getByEmail = function(params, finalCallback) {
 
 };
 
+// Update user
+User.update = function(params, finalCallback) {
+
+  var query = "UPDATE user SET nickname = ?, email = ?, password = ? WHERE id = ?;";
+  async.waterfall([
+    function(callback){ 
+      pool.getConnection(function(err, connection){
+        if(err) callback(err);
+        else    callback(null, connection);
+      });
+    
+    },
+    function(connection, callback){
+      bcrypt.genSalt(10, function(err, salt){
+        bcrypt.hash(params.password, salt, function(err, hash){
+          if(err) callback(err);
+          else    callback(null, connection, hash);
+        });
+        if(err) callback(err);
+      })
+    },
+    function(connection, hash, callback){
+      connection.query( query, [params.nickname, params.email, hash, params.id], function(err, row) {
+        if(err) callback(err);
+        else    callback(null, row);
+        connection.release();
+      });
+
+    }
+  ], function(err, row){
+    console.log('here3');
+    if(err) finalCallback(err, null);
+    else    finalCallback(err, row);
+  });
+
+}
+
 // Create new user
 User.create = function(params, finalCallback) {
   
@@ -106,6 +143,7 @@ User.create = function(params, finalCallback) {
     function(connection, callback){
       bcrypt.genSalt(10, function(err, salt){
         bcrypt.hash(params.password, salt, function(err, hash){
+
           if(err) callback(err);
           else    callback(null, connection, hash);
         });
@@ -114,7 +152,7 @@ User.create = function(params, finalCallback) {
     },
     function( connection, hash, callback){
 
-      connection.query( query, [params.nickname, params.email, hash], function(err, rows) {
+      connection.query( query, [params.nickname, params.email, params.hash], function(err, rows) {
         if(err) callback(err);
         else    callback(null, rows);
         connection.release();
@@ -122,14 +160,15 @@ User.create = function(params, finalCallback) {
 
     }
   ], function(err, rows){
+    console.log(err);
     if(err) finalCallback(err, null);
     else    finalCallback(err, rows);
   });
 
 };
-// Update user
-User.update = function(params, finalCallback) {
 
-};
+
+// delete user
+// 
 
 module.exports = User;
