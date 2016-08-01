@@ -1,6 +1,6 @@
 //join-controller.js
 define([
-  '..utils/http-util'
+  '../utils/http-util'
 ], function (
   HttpUtil
 ) {
@@ -13,6 +13,7 @@ define([
     self.view.bind('join', function(data) {
       self.join(data);
     });
+
 
   }
 

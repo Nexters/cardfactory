@@ -9,7 +9,6 @@ define([
   function JoinView() {
     this.$joinBtn = $('#join_btn');
     this.$emailInput = $('#email_input');
-    this.$emailInput2 = $('#email_input2');
     this.$nickInput = $('#nick_input');
     this.$pwInput = $('#pw_input');
   } 

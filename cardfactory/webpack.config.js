@@ -2,8 +2,9 @@
 module.exports = {
   context: __dirname + '/public/javascripts',
   entry: {
-    main: './main.js',
-    join: './join.js',
+    'main': './main.js',
+    'join': './join.js',
+    'card': './card.js',
     'card-edit': './card-edit.js'
   },
   output: {
