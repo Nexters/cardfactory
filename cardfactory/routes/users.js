@@ -34,7 +34,7 @@ router.post('/join', UserController.postJoin);
 
 /**
  * @api {put} /users update user
- * @apiName UserJoin
+ * @apiName PutUser
  * @apiGroup User
  *
  * @apiParam {String} nickname User nickname
