@@ -14,6 +14,8 @@ function Card() {
  * @param {Object} params
  * @param {Number} params.userId
  * @param {Number} params.cardTypeId
+ * @param {Number} params.fontSize
+ * @param {Number} params.brightness
  * @param {String} params.font
  * @param {String} params.img
  * @param {String} params.content
@@ -27,6 +29,12 @@ Card.validate = function(params) {
   }
   if (!validator.isInt(params.cardTypeId)) {
     return 'cardTypeId error';
+  }
+  if (!validator.isInt(params.fontSize)) {
+    return 'fontSize error';
+  }
+  if (!validator.isInt(params.brightness)) {
+    return 'brightness error';
   }
   if (!_.isString(params.font)) {
     return 'font error';
@@ -118,11 +126,13 @@ Card.create = function(params, finalCallback) {
   }
   async.waterfall([
     function(callback) {
-      var query = "INSERT INTO card (img, source, font, content, userId, cardTypeId) VALUES (?,?,?,?,?,?);";
+      var query = "INSERT INTO card (img, source, font, fontSize, brightness, content, userId, cardTypeId) VALUES (?,?,?,?,?,?,?,?);";
       var insertItem = [
         params.img,
         params.source,
         params.font,
+        params.fontSize,
+        params.brightness,
         params.content,
         params.userId,
         params.cardTypeId
