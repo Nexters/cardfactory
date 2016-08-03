@@ -26,6 +26,8 @@ describe('Card', function() {
       var card = {
         source: 'testsource',
         font: 'Nanum Gothic',
+        fontSize: '10',
+        brightness: '1',
         content: 'textcontent',
         userId: '1',
         cardTypeId: '1'
@@ -44,6 +46,8 @@ describe('Card', function() {
         img: 'testimg',
         source: 'testsource',
         font: 'Nanum Gothic',
+        fontSize : '10',
+        brightness: '1',
         content: 'textcontent',
         userId: '1',
         cardTypeId: '1'
@@ -56,6 +60,8 @@ describe('Card', function() {
         expect(result.cardTypeId).to.eql(1);
         expect(result.content).to.eql('textcontent');
         expect(result.font).to.eql('Nanum Gothic');
+        expect(result.fontSize).to.eql(10);
+        expect(result.brightness).to.eql(1);
         expect(result.img).to.eql('testimg');
         expect(result.source).to.eql('testsource');
         expect(result.hitsCount).to.equal(0);

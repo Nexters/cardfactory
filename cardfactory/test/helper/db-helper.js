@@ -62,7 +62,7 @@ module.exports = {
         });
       },
       function(callback) {
-        var query = "insert into card (id, img, source, font, content, hitsCount, likesCount, userId, cardTypeId) values (1, 'testImg', 'testSource', 'testFont', 'testContent', 1, 1, 1, 1)";
+        var query = "insert into card (id, img, content, source, font, fontSize, brightness, hitsCount, likesCount, userId, cardTypeId) values (1, 'testImg', 'testContent', 'testSource', 'testFont', 10, 1, 1, 1, 1, 1)";
         pool.query(query, function(err, result) {
           callback(err, result);
         });
