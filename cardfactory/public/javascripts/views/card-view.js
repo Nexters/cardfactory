@@ -76,7 +76,9 @@ define([
 
     }
 
-    if (event === '')
+    if (event === ''){
+      
+    }
   };
 
   return CardView;

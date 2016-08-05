@@ -12,7 +12,7 @@ var UserController = require('../controllers/user');
 router.get('/:id', UserController.getUserPageById);
 
 /**
- * @api {post} /users Login
+ * @api {post} /users/Login
  * @apiName PostLogin
  * @apiGroup User
  *
@@ -22,7 +22,7 @@ router.get('/:id', UserController.getUserPageById);
 router.post('/login', UserController.postLogin);
 
 /**
- * @api {post} /users join
+ * @api {post} /users/join
  * @apiName UserJoin
  * @apiGroup User
  *
@@ -33,7 +33,7 @@ router.post('/login', UserController.postLogin);
 router.post('/join', UserController.postJoin);
 
 /**
- * @api {put} /users update user
+ * @api {put} /users/update user
  * @apiName PutUser
  * @apiGroup User
  *
@@ -44,7 +44,7 @@ router.post('/join', UserController.postJoin);
 router.put('/:id', UserController.putUser);
 
 /**
- * @api {get} /users logout
+ * @api {get} /users/logout
  * @apiName UserLogout
  * @apiGroup User
  *
