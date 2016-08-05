@@ -152,7 +152,7 @@ User.create = function(params, finalCallback) {
     },
     function( connection, hash, callback){
 
-      connection.query( query, [params.nickname, params.email, params.hash], function(err, rows) {
+      connection.query( query, [params.nickname, params.email, hash], function(err, rows) {
         if(err) callback(err);
         else    callback(null, rows);
         connection.release();
