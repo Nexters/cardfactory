@@ -10,7 +10,6 @@ define([
     this.template = template;
 
     this.$container = $('#card_container');
-    this.$menuContainer = $('#menu_container');
     this.$cardItem = $('#card_item');
     this.$content = $('#card_content');
     this.$source = $('#card_source');
@@ -26,7 +25,19 @@ define([
         self.applyStyle();
       },
       drawMenu: function () {
-        self.$menuContainer.html(self.template.drawMenu(params));
+        // TODO: 메뉴 타입에 따라 보여지는 메뉴 달라짐!
+        switch(params.menuType) {
+          case 'img':
+            break;
+          case 'cardType':
+            break;
+          case 'font':
+            break;
+          case 'fontSize':
+            break;
+          default:
+            break;
+        }
       }
     };
 
@@ -52,6 +63,20 @@ define([
         handler(data);
       });
     }
+
+    if (event === 'changeMenu') {
+      // TODO: 메뉴 클릭 이벤트 바인딩
+    }
+
+    if (event === 'imgUpload') {
+
+    }
+
+    if (event === 'changeCardType') {
+
+    }
+
+    if (event === '')
   };
 
   return CardView;

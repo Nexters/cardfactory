@@ -10,6 +10,7 @@ define([
     self.view = view;
 
     self.view.render('draw', model);
+    self.view.render('drawMenu', {});
     self.bindHandlers();
   }
 
@@ -17,6 +18,10 @@ define([
     var self = this;
     self.view.bind('saveCard', function(data) {
       self.addCard(data);
+    });
+
+    self.view.bind('changeMenu', function(data) {
+
     });
   };
 
