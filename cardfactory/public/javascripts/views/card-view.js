@@ -10,9 +10,7 @@ define([
     this.template = template;
 
     this.$container = $('#card_container');
-    this.$cardItem = $('#card_item');
-    this.$content = $('#card_content');
-    this.$source = $('#card_source');
+
 
     this.$saveCardBtn = $('#save_card_btn');
   }
@@ -22,6 +20,9 @@ define([
     var viewCommands = {
       draw: function () {
         self.$container.html(self.template.draw(params));
+        self.$cardItem = $('#card_item');
+        self.$content = $('#card_content');
+        self.$source = $('#card_source');
         self.applyStyle();
       },
       drawMenu: function () {
@@ -45,7 +46,8 @@ define([
   };
 
   CardView.prototype.applyStyle = function() {
-
+    var coverImg = this.$cardItem.data('img');
+    this.$cardItem.css('background-image', 'url('+coverImg+')');
   };
 
   CardView.prototype.bind = function(event, handler) {

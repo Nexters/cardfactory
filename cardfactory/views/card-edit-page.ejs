@@ -2,25 +2,53 @@
 <html>
 <head>
     <%- include partial/common-head.ejs %>
+    <link href="/css/edit.css" rel="stylesheet">
+    <meta name="title" content="<%= title %>" />
 </head>
 <body>
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+    <nav id="nav">
+        <span id="back_btn">Back</span>
+        <span id="save_card_btn">Save</span>
+    </nav>
+    <div id="card_container">
 
-<nav>
-    <span id="back_btn">Back</span>
-    <span id="save_card_btn">Save</span>
-</nav>
+    </div>
+    <div id="menu_container">
+        <div id="menu_select_container">
+            <div id="menu_select_option_list" class="row">
+                <div class="col-xs-3 col-md-3" data-menu="image">
+                    Image
+                </div>
+                <div class="col-xs-3 col-md-3" data-menu="template">
+                    Template
+                </div>
+                <div class="col-xs-3 col-md-3" data-menu="font">
+                    Font
+                </div>
+                <div class="col-xs-3 col-md-3" data-menu="fontSize">
+                    FontSize
+                </div>
+            </div>
+        </div>
+        <div id="menu_option_container">
+            <div id="image_menu_option" style="display: block;">
+                <img src="/images/test.png" />
+                <img src="/images/test.png" />
+                <img src="/images/test.png" />
+                <img src="/images/test.png" />
+            </div>
+            <div id="template_menu_option">
 
+            </div>
+            <div id="font_menu_option">
 
-<div id="card_container">
+            </div>
+            <div id="font_size_menu_option">
 
-</div>
+            </div>
+        </div>
+    </div>
 
-<div id="menu_container">
-
-</div>
-
-<script type="text/javascript" src="/card-edit.bundle.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/card-edit.bundle.js" charset="utf-8"></script>
 </body>
 </html>

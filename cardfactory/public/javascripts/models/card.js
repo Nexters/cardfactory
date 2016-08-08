@@ -14,6 +14,7 @@ define([
    * @param {Object} params 모델 데이터
    * @param {String} [params.cardTypeId] 카드 타입 id
    * @param {String} [params.font] 폰트 스타일
+   * @param {String} [params.img] 이미지
    * @param {String} [params.content] 내용
    * @param {String} [params.source] 출처
    *
@@ -22,6 +23,7 @@ define([
   function Card(params) {
     this.cardTypeId = params.cardTypeId;
     this.font = params.font;
+    this.img = params.img;
     this.content = params.content;
     this.source = params.source;
   }

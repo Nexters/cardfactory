@@ -13,7 +13,9 @@ define([
   'use strict';
 
   function CardEditPage() {
-    this.model = new Card({});
+    this.model = new Card({
+      img: '/images/test.png'
+    });
     this.template = new CardTemplate();
     this.view = new CardView(this.template);
     this.controller = new CardController(this.model, this.view);
