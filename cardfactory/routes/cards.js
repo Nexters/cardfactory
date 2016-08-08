@@ -10,13 +10,11 @@ var CardController = require('../controllers/card');
 router.get('/', CardController.getCardListPage);
 
 /**
- * @api {get} /cards/:id Get Card Page
- * @apiName GetCardPage
+ * @api {get} /cards/new Get Card Create Page
+ * @apiName GetCardCreatePage
  * @apiGroup Card
- *
- * @apiParam {String} id Card unique id
  */
-router.get('/:id', CardController.getCardPageById);
+router.get('/new', CardController.getCardCreatePage);
 
 /**
  * @api {get} /cards/:id/edit Get Card Edit Page
@@ -28,13 +26,13 @@ router.get('/:id', CardController.getCardPageById);
 router.get('/:id/edit', CardController.getCardEditPage);
 
 /**
- * @api {get} /cards/:id Get User Card Page
+ * @api {get} /cards/user/:userId Get User Card Page
  * @apiName GetUserCardPage
  * @apiGroup Card
  *
- * @apiParam {String} id User unique id
+ * @apiParam {String} userId User unique id
  */
-router.get('/:userId', CardController.getUserCardPage);
+router.get('/user/:userId', CardController.getUserCardPage);
 
 /**
  * @api {post} /cards Post Card

@@ -19,8 +19,11 @@ CardController.getCardPageById = function(req, res, next) {
   res.render('card-page', { title: '카드 페이지' });
 };
 
+CardController.getCardCreatePage = function(req, res, next) {
+  res.render('card-edit-page', { title: '새 카드 페이지' });
+};
+
 CardController.getCardEditPage = function(req, res, next) {
-  console.log("CARD EDIT");
   res.render('card-edit-page', { title: '카드 수정 페이지' });
 };
 
