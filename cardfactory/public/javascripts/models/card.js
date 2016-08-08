@@ -14,6 +14,7 @@ define([
    * @param {Object} params 모델 데이터
    * @param {String} [params.cardTypeId] 카드 타입 id
    * @param {String} [params.font] 폰트 스타일
+   * @param {Number} [params.fontSize] 폰트 크기
    * @param {String} [params.img] 이미지
    * @param {String} [params.content] 내용
    * @param {String} [params.source] 출처
@@ -23,6 +24,7 @@ define([
   function Card(params) {
     this.cardTypeId = params.cardTypeId;
     this.font = params.font;
+    this.fontSize = params.fontSize;
     this.img = params.img;
     this.content = params.content;
     this.source = params.source;
@@ -34,6 +36,7 @@ define([
    * @param {Object} data
    * @param {String} data.cardTypeId
    * @param {String} data.font
+   * @param {Number} data.fontSize
    * @param {String} data.img
    * @param {String} data.content
    * @param {String} data.source
@@ -47,6 +50,7 @@ define([
     newCard = {
       cardTypeId: data.cardTypeId,
       font: data.font,
+      fontSize: data.fontSize,
       img: data.img,
       content: data.content,
       source: data.source
@@ -62,6 +66,10 @@ define([
     }
     if (!_.isString(data.font)) {
       alert("폰트를 선택해주세요!");
+      return false;
+    }
+    if (!_.isNumber(parseInt(data.fontSize))) {
+      alert("폰트 크기를 선택해주세요!");
       return false;
     }
     if (!_.isString(data.img)) {

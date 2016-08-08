@@ -67,6 +67,8 @@ define([
         var data = {
           cardTypeId: self.$cardItem.data('type'),
           font: self.$cardItem.data('font'),
+          fontSize: self.$cardItem.data('fontsize'),
+          brightness: 1,
           img: self.$cardItem.data('img'),
           content: self.$content.val(),
           source: self.$source.val()

@@ -28,7 +28,7 @@ define([
 
   function CardTemplate() {
     this.defaultTemplate
-      =	'<div id="card_item" data-type="{{cardTypeId}}" data-font="{{font}}" data-img="{{img}}">'
+      =	'<div id="card_item" data-type="{{cardTypeId}}" data-font="{{font}}" data-fontsize="{{fontSize}}" data-img="{{img}}">'
       +		'<input type="text" id="card_content">{{content}}</input>'
       +		'<input type="text" id="card_source">{{source}}</input>'
       +	'</div>';
@@ -40,6 +40,7 @@ define([
     var template = this.defaultTemplate;
 
     template = template.replace('{{cardTypeId}}', data.cardTypeId || '');
+    template = template.replace('{{fontSize}}', data.fontSize || '');
     template = template.replace('{{font}}', data.font || '');
     template = template.replace('{{img}}', data.img || '');
     template = template.replace('{{content}}', escape(data.content) || '');
