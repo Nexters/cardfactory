@@ -12,9 +12,11 @@ define([
 ) {
   'use strict';
 
+  var defaultImage = '/images/test.png';
+
   function CardEditPage() {
     this.model = new Card({
-      img: '/images/test.png'
+      img: defaultImage
     });
     this.template = new CardTemplate();
     this.view = new CardView(this.template);
