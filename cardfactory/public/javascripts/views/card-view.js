@@ -1,8 +1,6 @@
 //card-view.js
 define([
-  '../bower_components/jquery/dist/jquery'
 ], function (
-  $
 ) {
   'use strict';
 
@@ -84,10 +82,19 @@ define([
     }
 
     if (event === 'imgUpload') {
-
+      $('#image_upload_btn').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+          if (data && data.result) {
+            handler(data.result);
+          }
+        }
+      });
     }
 
     if (event === 'changeCardType') {
+
+
 
     }
 

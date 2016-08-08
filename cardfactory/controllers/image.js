@@ -45,7 +45,7 @@ ImageController.upload = function (req, res) {
     logger.debug('End:', savedFileName);
     res.set('Content-type', 'text/html; charset=utf-8');
     res.writeHead(200, { 'Connection': 'close' });
-    res.write(JSON.stringify(savedFileName));
+    res.write(JSON.stringify('/images/' + savedFileName));
     res.end();
   });
 

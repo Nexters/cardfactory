@@ -5,7 +5,7 @@ define([
   'use strict';
 
   function CardListPage() {
-    
+
   }
 
   return new CardListPage();

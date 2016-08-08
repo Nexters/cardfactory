@@ -1,4 +1,6 @@
 //webpack.config.js
+var webpack = require("webpack");
+
 module.exports = {
   context: __dirname + '/public/javascripts',
   entry: {

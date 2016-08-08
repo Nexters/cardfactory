@@ -9,7 +9,7 @@ define([
     self.model = model;
     self.view = view;
 
-    self.view.render('draw', model);
+    self.view.render('draw', self.model);
     self.view.render('drawMenu', { menu: 'image' });
     self.bindHandlers();
   }
@@ -22,6 +22,11 @@ define([
 
     self.view.bind('changeMenu', function(data) {
       self.view.render('drawMenu', { menu: data });
+    });
+
+    self.view.bind('imgUpload', function(data) {
+      self.model.img = data;
+      self.view.render('draw', self.model);
     });
   };
 
