@@ -10,7 +10,7 @@ define([
     self.view = view;
 
     self.view.render('draw', model);
-    self.view.render('drawMenu', {});
+    self.view.render('drawMenu', { menu: 'image' });
     self.bindHandlers();
   }
 
@@ -21,7 +21,7 @@ define([
     });
 
     self.view.bind('changeMenu', function(data) {
-
+      self.view.render('drawMenu', { menu: data });
     });
   };
 

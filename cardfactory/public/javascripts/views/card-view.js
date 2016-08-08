@@ -10,8 +10,10 @@ define([
     this.template = template;
 
     this.$container = $('#card_container');
-
-
+    this.$imageMenu = $('#image_menu_option');
+    this.$templateMenu = $('#template_menu_option');
+    this.$fontMenu = $('#font_menu_option');
+    this.$fontSizeMenu = $('#font_size_menu_option');
     this.$saveCardBtn = $('#save_card_btn');
   }
 
@@ -26,15 +28,22 @@ define([
         self.applyStyle();
       },
       drawMenu: function () {
-        // TODO: 메뉴 타입에 따라 보여지는 메뉴 달라짐!
-        switch(params.menuType) {
-          case 'img':
+        switch(params.menu) {
+          case 'image':
+            self.$imageMenu.show();
+            self.$imageMenu.siblings().hide();
             break;
-          case 'cardType':
+          case 'template':
+            self.$templateMenu.show();
+            self.$templateMenu.siblings().hide();
             break;
           case 'font':
+            self.$fontMenu.show();
+            self.$fontMenu.siblings().hide();
             break;
           case 'fontSize':
+            self.$fontSizeMenu.show();
+            self.$fontSizeMenu.siblings().hide();
             break;
           default:
             break;
@@ -67,7 +76,9 @@ define([
     }
 
     if (event === 'changeMenu') {
-      // TODO: 메뉴 클릭 이벤트 바인딩
+      $('#menu_select_option_list > div').click(function() {
+        handler($(this).data('menu'));
+      });
     }
 
     if (event === 'imgUpload') {
