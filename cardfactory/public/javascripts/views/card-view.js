@@ -13,6 +13,7 @@ define([
     this.$imageMenu = $('#image_menu_option');
     this.$fontMenu = $('#font_menu_option');
     this.$fontSizeMenu = $('#font_size_menu_option');
+    this.$brightnessMenu = $('#brightness_menu_option');
     this.$saveCardBtn = $('#save_card_btn');
   }
 
@@ -52,6 +53,10 @@ define([
             break;
           case 'fontSize':
             self.$fontSizeMenu.show();
+            self.$fontSizeMenu.siblings().hide();
+            break;
+          case 'brightness':
+            self.$brightnessMenu.show();
             self.$fontSizeMenu.siblings().hide();
             break;
           default:
