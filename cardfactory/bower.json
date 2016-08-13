@@ -24,6 +24,7 @@
     "bootstrap": "^3.3.6",
     "underscore": "^1.8.3",
     "blueimp-file-upload": "^9.12.5",
-    "jquery-ui": "^1.12.0"
+    "jquery-ui": "^1.12.0",
+    "Swiper": "swiper#^3.3.1"
   }
 }

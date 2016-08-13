@@ -59,6 +59,35 @@ define([
     HttpUtil.postData('/cards', newCard, callback);
   };
 
+  /**
+   * Create card model
+   *
+   * @param {Object} data
+   * @param {String} data.cardTypeId
+   * @param {String} data.font
+   * @param {Number} data.fontSize
+   * @param {String} data.img
+   * @param {String} data.content
+   * @param {String} data.source
+   * @param {Function} callback
+   */
+  Card.prototype.create = function(data, callback) {
+    var newCard;
+    if (!this.validate(data)) {
+      return callback();
+    }
+    newCard = {
+      cardTypeId: data.cardTypeId,
+      font: data.font,
+      fontSize: data.fontSize,
+      img: data.img,
+      content: data.content,
+      source: data.source
+    };
+
+    HttpUtil.postData('/cards', newCard, callback);
+  };
+  
   Card.prototype.validate = function(data) {
     if (!_.isString(data.cardTypeId)) {
       alert("카드 타입을 선택해주세요!");

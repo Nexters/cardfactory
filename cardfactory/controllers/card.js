@@ -9,7 +9,7 @@ CardController.getCardListPage = function(req, res, next) {
   //TODO: get card list from Card model
   
   req.params.pageNum = req.params.pageNum || 0;
-  req.params.perPage = req.params.perPage || 20;
+  req.params.perPage = req.params.perPage || 100;
 
   Card.get(req.params, function(err, result) {
     console.log(result);

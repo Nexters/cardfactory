@@ -1,1 +1,5 @@
-<div>카드 목록</div>
+<% for(var i = 0; i < data.length; i++) { %>
+	<div class="card-container">
+		<img class="card-image" src = <%= imgIP + data[i].img %> >
+	</div>
+<% } %>
