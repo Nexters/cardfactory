@@ -19,6 +19,8 @@ CardController.getCardListPage = function(req, res, next) {
 
 CardController.getCardPageById = function(req, res, next) {
   //TODO: get card by id from Card model
+  console.log("1hello");
+  console.log(req.params);
   Card.getById(req.params, function(err, result) {
     res.render('card-page', { title: '카드 페이지' , data : result});
   });
@@ -36,9 +38,13 @@ CardController.getCardEditPage = function(req, res, next) {
 CardController.getUserCardPage = function(req, res, next) {
 
   req.params.pageNum = req.params.pageNum || 0;
-  req.params.perPage = req.params.perPage || 20;
+  req.params.perPage = req.params.perPage || 100;
+  req.params.userId = req.params.userId; 
+//console.log(req.params.userId);
+  
 
-  Card.getUserCard(req.query, function(err, result) {
+  Card.getUserCard(req.params, function(err, result) {
+    //console.log(result);
     res.render('card-usercard-page', { title: '사용자 작성 카드 페이지', data: result , imgIP : config.imgIP});
   });
 };
