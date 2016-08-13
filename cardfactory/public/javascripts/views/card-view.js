@@ -57,7 +57,7 @@ define([
             break;
           case 'brightness':
             self.$brightnessMenu.show();
-            self.$fontSizeMenu.siblings().hide();
+            self.$brightnessMenu.siblings().hide();
             break;
           default:
             break;
