@@ -37,6 +37,7 @@ body {
 
 #menu_select_option_list > div {
     height: 100%;
+    font-size: 22px;
 }
 /* end - menu_select_container */
 
@@ -77,6 +78,7 @@ body {
 
 .font-menu-item {
     width: 32%;
+    height: 92%;
     margin: 0px;
 }
 
@@ -86,7 +88,7 @@ body {
 /* start - card_item */
 .card-content-wrap {
     padding-top: 45%;
-    padding-bottom: 5%;
+    padding-bottom: 2%;
 }
 
 .card-source-wrap {
@@ -113,6 +115,37 @@ body {
     font-size: 200px !important;
     direction: ltr;
     cursor: pointer;
+}
+
+#card_content {
+    width: 90%;
+    height: 50px;
+    font-size: 25px;
+    resize: none;
+
+    background: transparent;
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+#card_source {
+    width: 90%;
+    height: 30px;
+    font-size: 18px;
+
+    background: transparent;
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 
 /* end - card_item */

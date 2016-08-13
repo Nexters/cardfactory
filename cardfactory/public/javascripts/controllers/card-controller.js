@@ -34,7 +34,12 @@ define([
       self.view.render('draw', self.model);
     });
 
-    self.view.bind('changeTemplate', function(data) {
+    self.view.bind('changeFont', function(data) {
+      self.model.img = data;
+      self.view.render('draw', self.model);
+    });
+
+    self.view.bind('changeFontSize', function(data) {
       self.model.img = data;
       self.view.render('draw', self.model);
     });

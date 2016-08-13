@@ -30,10 +30,10 @@ define([
     this.defaultTemplate
       =	'<div id="card_item" data-type="{{cardTypeId}}" data-font="{{font}}" data-fontsize="{{fontSize}}" data-img="{{img}}">'
       +		'<div class="card-content-wrap text-center">'
-      +		  '<input type="text" class="card-text-input" id="card_content">{{content}}</input>'
+      +		  '<textarea id="card_content" class="card-text-input" placeholder="내용을 입력해주세요.">{{content}}</textarea>'
       +		'</div>'
       +		'<div class="card-source-wrap text-center">'
-      + 		'<input type="text" class="card-text-input" id="card_source">{{source}}</input>'
+      + 		'<input type="text" id="card_source" class="card-text-input" placeholder="출처를 입력해주세요.">{{source}}</input>'
       +		'</div>'
       +	'</div>';
   }

@@ -21,6 +21,15 @@ router.get('/', CardController.getCardListPage);
 router.get('/new', CardController.getCardCreatePage);
 
 /**
+ * @api {get} /cards/:id Get Card Page By Id
+ * @apiName GetCardPageById
+ * @apidGroup Card
+ *
+ * @apiParam {String} id Card unique id
+ */
+router.get('/:id', CardController.getCardPageById);
+
+/**
  * @api {get} /cards/:id/edit Get Card Edit Page
  * @apiName GetCardEditPage
  * @apiGroup Card
