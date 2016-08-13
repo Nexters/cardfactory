@@ -12,7 +12,7 @@ define([
 ) {
   'use strict';
 
-  var defaultImage = '/images/test.png';
+  var defaultImage = '/resources/default_bg_img.png';
 
   function CardEditPage() {
     this.model = new Card({
