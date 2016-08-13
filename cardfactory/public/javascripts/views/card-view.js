@@ -57,7 +57,7 @@ define([
             break;
           case 'brightness':
             self.$brightnessMenu.show();
-            self.$fontSizeMenu.siblings().hide();
+            self.$brightnessMenu.siblings().hide();
             break;
           default:
             break;
@@ -133,6 +133,12 @@ define([
     if (event === 'changeFontSize'){
       $('#font_size_menu_option > img').click(function() {
         handler($(this).data('fontsize'));
+      });
+    }
+
+    if (event === 'changeBrightness'){
+      $('#brightness_menu_option > img').click(function() {
+        handler($(this).data('brightness'));
       });
     }
   };
