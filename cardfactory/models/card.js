@@ -87,7 +87,6 @@ Card.get = function(params, finalCallback) {
 
 // Get card by Id
 Card.getById = function(params, finalCallback) {
-
   var query = "SELECT * FROM card WHERE Id = ?";
 
   async.waterfall([
@@ -100,7 +99,7 @@ Card.getById = function(params, finalCallback) {
     },
     function(connection, callback){
 
-      connection.query( query, [params.userId,params.pageNum * params.perPage, params.perPage], function(err, rows){
+      connection.query( query, [params.id,params.pageNum * params.perPage, params.perPage], function(err, rows){
         if(err) callback(err);
         else    callback(null, rows[0]);
         connection.release();
@@ -126,15 +125,15 @@ Card.getUserCard = function(params, finalCallback) {
     },
     function(connection, callback){
       // params.id 가 유저의 id
-      connection.query( query, [params.userId, params.pageNum * params.perPage, params.perPage], function(err, rows){
+      connection.query( query, [params.id, params.pageNum * params.perPage, params.perPage], function(err, rows){
         if(err) callback(err);
-        else    callback(null, rows);
+        else    callback(null, rows[0]);
         connection.release();
       });
     }
-    ], function(err, rows){
+    ], function(err, row){
       if(err) finalCallback(err, null);
-      else    finalCallback(err, rows);
+      else    finalCallback(err, row);
     });
 };
 

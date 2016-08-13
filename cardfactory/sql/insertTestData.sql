@@ -1,2 +1,4 @@
-insert into card_type (id, name, defaultImg, defaultFont) values (7,'cardname','defaultImg', 'defaultFont');
-insert into card (id, img, content, source, font, fontSize, brightness, hitsCount, likesCount, userId, cardTypeId) values (7,'/images/test.png', 'testContent', 'testSource', 'testFont', 10, 1, 1, 1, 31, 1);
+insert into user (id, nickname, email, password) values (1, 'testNickname', 'test@test.com', 'test');
+insert into card_type (id, name, defaultImg, defaultFont) values (1, 'cardname','defaultImg', 'defaultFont');
+insert into card (id, img, content, source, font, fontSize, brightness, hitsCount, likesCount, userId, cardTypeId) values (1, '/images/test.png', 'testContent', 'testSource', 'testFont', 10, 1, 1, 1, 1, 1);
+insert into card (id, img, content, source, font, fontSize, brightness, hitsCount, likesCount, userId, cardTypeId) values (2, '/images/testmain.png', '좋은글,\n기분과 느끼는\n모든 것들을\n쓰고 담다.', '변종모<아무도 그립지 않다는\n거짓말>중에서', 'sans', 27, 1, 1, 1, 1, 1);

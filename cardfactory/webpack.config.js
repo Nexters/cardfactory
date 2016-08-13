@@ -8,8 +8,7 @@ module.exports = {
     'join': './join.js',
     'card': './card.js',
     'card-list': './card-list.js',
-    'card-edit': './card-edit.js',
-    'login':'./login.js',
+    'card-edit': './card-edit.js'
   },
   output: {
     filename: './dist/[name].bundle.js'
