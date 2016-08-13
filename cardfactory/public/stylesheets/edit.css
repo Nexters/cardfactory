@@ -25,7 +25,7 @@ body {
 
 /* start - menu_select_container */
 #menu_select_container {
-    height: 25%;
+    height: 27%;
 }
 
 #menu_select_option_list {
@@ -42,11 +42,11 @@ body {
 }
 
 #menu_select_option_list > div.active {
-    background-color: red;
+    background-color: #E1E1E1;
 }
 
 #menu_select_option_list img {
-    height: 60%;
+    height: 75%;
     overflow: auto;
     margin: auto;
     position: absolute;
@@ -60,7 +60,7 @@ body {
 /* start - menu_option_container */
 #menu_option_container {
     width: 100%;
-    height: 75%;
+    height: 73%;
     overflow-x: scroll;
 }
 

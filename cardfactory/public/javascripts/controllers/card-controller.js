@@ -26,22 +26,27 @@ define([
 
     self.view.bind('imgUpload', function(data) {
       self.model.img = data;
-      self.view.render('draw', self.model);
+      self.view.redraw(self.model);
     });
 
     self.view.bind('changeImage', function(data) {
       self.model.img = data;
-      self.view.render('draw', self.model);
+      self.view.redraw(self.model);
     });
 
     self.view.bind('changeFont', function(data) {
       self.model.font = data;
-      self.view.render('draw', self.model);
+      self.view.redraw(self.model);
     });
 
     self.view.bind('changeFontSize', function(data) {
       self.model.fontSize = data;
-      self.view.render('draw', self.model);
+      self.view.redraw(self.model);
+    });
+
+    self.view.bind('changeBrightness', function(data) {
+      self.model.brightness = data;
+      self.view.redraw(self.model);
     });
   };
 

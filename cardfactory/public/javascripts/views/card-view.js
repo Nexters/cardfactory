@@ -69,6 +69,22 @@ define([
     viewCommands[viewCmd]();
   };
 
+  CardView.prototype.redraw = function(model) {
+    if (model.img) {
+      this.$cardItem.data('img', model.img);
+    }
+    if (model.font) {
+      this.$cardItem.data('font', model.font);
+    }
+    if (model.fontSize) {
+      this.$cardItem.data('fontsize', model.fontSize);
+    }
+    if (model.brightness) {
+      this.$cardItem.data('brightness', model.brightness);
+    }
+    this.applyStyle();
+  };
+
   CardView.prototype.applyStyle = function() {
     var coverImg = this.$cardItem.data('img');
     var fontSize = this.$cardItem.data('fontsize');
@@ -93,7 +109,7 @@ define([
           cardTypeId: self.$cardItem.data('type'),
           font: self.$cardItem.data('font'),
           fontSize: self.$cardItem.data('fontsize'),
-          brightness: 1,
+          brightness: self.$cardItem.data('brightness'),
           img: self.$cardItem.data('img'),
           content: self.$content.val(),
           source: self.$source.val()
