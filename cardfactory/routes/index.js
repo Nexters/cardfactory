@@ -5,6 +5,9 @@ var IndexController = require('../controllers/index');
 /* GET home page. */
 router.get('/', IndexController.getMainPage);
 
+/* GET login page. */
+router.get('/login', IndexController.getLoginPage);
+
 /* GET join page. */
 router.get('/join', IndexController.getJoinPage);
 

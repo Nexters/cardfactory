@@ -16,11 +16,14 @@ CardController.getCardListPage = function(req, res, next) {
     res.render('card-list-page', { title: '카드 목록 페이지' , data : result, imgIP : config.imgIP});
   });
 };
-
+  
 CardController.getCardPageById = function(req, res, next) {
   //TODO: get card by id from Card model
   Card.getById(req.params, function(err, result) {
-    res.render('card-page', { title: '카드 페이지' , data : result});
+    
+    var content = result.content.split('\n');
+
+    res.render('card-page', { title: '카드 페이지' , data : result, content : content});
   });
 };
 

@@ -4,6 +4,7 @@
     <link href="/css/edit.css" rel="stylesheet">
     <meta name="title" content="<%= title %>" />
 </head>
+
 <body>
     <%- include partial/common-head.ejs %>
     <nav id="nav" class="navbar navbar-fixed-top">
@@ -18,14 +19,17 @@
     <div id="menu_container">
         <div id="menu_select_container">
             <div id="menu_select_option_list" class="row">
-                <div class="col-xs-4 col-md-4 text-center" data-menu="image">
-                    Image
+                <div class="col-xs-3 col-md-3 text-center active" data-menu="image">
+                    <img src="/resources/menu_image_icon.png" />
                 </div>
-                <div class="col-xs-4 col-md-4 text-center" data-menu="font">
-                    Font
+                <div class="col-xs-3 col-md-3 text-center" data-menu="font">
+                    <img src="/resources/menu_font_icon.png" />
                 </div>
-                <div class="col-xs-4 col-md-4 text-center" data-menu="fontSize">
-                    Size
+                <div class="col-xs-3 col-md-3 text-center" data-menu="fontSize">
+                    <img src="/resources/menu_font_size_icon.png" />
+                </div>
+                <div class="col-xs-3 col-md-3 text-center" data-menu="brightness">
+                    <img src="/resources/menu_brightness_icon.png" />
                 </div>
             </div>
         </div>
@@ -41,14 +45,19 @@
                 <img class="image-menu-item" data-img="/images/test.png" src="/images/test.png" />
             </div>
             <div id="font_menu_option">
-                <img class="font-menu-item" data-font="Nanum Gothic" src="/resources/font_small.png" />
-                <img class="font-menu-item" data-font="Gulim" src="/resources/font_normal.png" />
-                <img class="font-menu-item" data-font="Gothic" src="/resources/font_big.png" />
+                <img class="menu-item" data-font="Nanum Gothic" src="/resources/font_small.png" />
+                <img class="menu-item" data-font="Gulim" src="/resources/font_normal.png" />
+                <img class="menu-item" data-font="Gothic" src="/resources/font_big.png" />
             </div>
             <div id="font_size_menu_option">
-                <img class="font-menu-item" data-fontsize="25" src="/resources/font_size_small.png" />
-                <img class="font-menu-item" data-fontsize="30" src="/resources/font_size_normal.png" />
-                <img class="font-menu-item" data-fontsize="35" src="/resources/font_size_big.png" />
+                <img class="menu-item" data-fontsize="25" src="/resources/font_size_small.png" />
+                <img class="menu-item" data-fontsize="30" src="/resources/font_size_normal.png" />
+                <img class="menu-item" data-fontsize="35" src="/resources/font_size_big.png" />
+            </div>
+            <div id="brightness_menu_option">
+                <img class="menu-item" data-brightness="30" src="/resources/brightness_small.png" />
+                <img class="menu-item" data-brightness="50" src="/resources/brightness_normal.png" />
+                <img class="menu-item" data-brightness="70" src="/resources/brightness_big.png" />
             </div>
         </div>
     </div>
