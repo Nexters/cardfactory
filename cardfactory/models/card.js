@@ -58,11 +58,31 @@ Card.validate = function(params) {
  params.perPage = 20;
 */
 Card.get = function(params, finalCallback) {
-  var query = "SELECT * FROM card LIMIT ?,?";
 
-  pool.query(query, [params.pageNum * params.perPage, params.perPage], function (err, result) {
-    finalCallback(err, result);
-  });
+  var query = "SELECT * FROM card ORDER BY updatedDate LIMIT ?,?";
+
+  async.waterfall([
+    function(callback){
+
+      pool.getConnection(function(err, connection){
+        if(err) callback(err);
+        else    callback(null, connection);
+      });
+    },
+    function(connection, callback){
+
+      connection.query( query, [params.pageNum * params.perPage, params.perPage], function(err, rows){
+        if(err) callback(err);
+        else    callback(null, rows);
+        connection.release();
+      });
+    }
+    ], function(err, rows){
+      console.log(err);
+      if(err) finalCallback(err, null);
+      else    finalCallback(err, rows);
+    });
+
 };
 
 // Get card by Id

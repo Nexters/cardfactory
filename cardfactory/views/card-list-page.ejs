@@ -9,5 +9,16 @@
 
 <%- include partial/card-list.ejs %>
 <script type="text/javascript" src="/card-list.bundle.js" charset="utf-8"></script>
+
+<ul>
+	<% for(var i = 0; i < data.length; i++) { %>
+		<li>
+			<img src = <%= imgIP + data[i].img %> >
+		</li>
+	<% } %>
+</ul>
+
+<h5>content</h5>
+
 </body>
 </html>
