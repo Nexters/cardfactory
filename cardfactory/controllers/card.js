@@ -35,8 +35,11 @@ CardController.getCardEditPage = function(req, res, next) {
 
 
 CardController.getUserCardPage = function(req, res, next) {
+
+  req.params.pageNum = req.params.pageNum || 0;
+  req.params.perPage = req.params.perPage || 20;
+
   Card.getUserCard(req.query, function(err, result) {
-    console.log(result);
     res.render('card-usercard-page', { title: '사용자 작성 카드 페이지', data: result , imgIP : config.imgIP});
   });
 };
