@@ -58,9 +58,9 @@ Card.validate = function(params) {
  params.perPage = 20;
 */
 Card.get = function(params, finalCallback) {
-  var query = "SELECT * FROM card";
+  var query = "SELECT * FROM card LIMIT ?,?";
 
-  pool.query(query, function (err, result) {
+  pool.query(query, [params.pageNum * params.perPage, params.perPage], function (err, result) {
     finalCallback(err, result);
   });
 };
@@ -93,7 +93,7 @@ Card.getById = function(params, finalCallback) {
 
 // Get card by Id Order by UpdatedDate
 Card.getUserCard - function(params, finalCallback) {
-  var query = "SELECT * FROM card WHERE userId = ? ORDER BY updatedDate";
+  var query = "SELECT * FROM card WHERE userId = ? ORDER BY updatedDate  LIMIT ?,?";
 
   async.waterfall([
     function(callback){
@@ -104,8 +104,8 @@ Card.getUserCard - function(params, finalCallback) {
       });
     },
     function(connection, callback){
-
-      connection.query( query, [params.id], function(err, rows){    // params.id 가 유저의 id
+      // params.id 가 유저의 id
+      connection.query( query, [params.id, params.pageNum * params.perPage, params.perPage], function(err, rows){
         if(err) callback(err);
         else    callback(null, rows[0]);
         connection.release();

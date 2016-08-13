@@ -13,6 +13,10 @@ router.get('/', CardController.getCardListPage);
  * @api {get} /cards/new Get Card Create Page
  * @apiName GetCardCreatePage
  * @apiGroup Card
+ *
+ * @apiParam {String} pageNum
+ * @apiParam {String} perPage
+ *
  */
 router.get('/new', CardController.getCardCreatePage);
 
