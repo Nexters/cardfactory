@@ -10,17 +10,23 @@
 	<div id="cardpage_div" style = "background:url(<%= data.img %>) no-repeat;  ">
 
 		<div id="cardpage_content_div">
-			<label><font size = "<%= data.fontSize %>" face = "<%= data.font %>"> <%= data.content %> </font></label>
-		</div>
-		
-		<div id="cardpage_source_div">
-			<label><%= data.source %></label>
+			<div id="cardpage_content_div_div">
+				<font size = "<%= data.fontSize %>" face = "<%= data.font %>">
+					<label id="cardpage_content" disabled> <%= data.content %> </label>
+				</font>
+			</div>
+
+			<div id="cardpage_source_div">
+				<font size = "12dp" face = "sans">
+					<textarea id="cardpage_content_souce" disabled> <%= data.source %> </textarea>
+				</font>
+			</div>
 		</div>
 
 		<div id="cardpage_updatedDate_div">
-			<label><font size = "2" face = "굴림체"> <%= data.updatedDate %> </font> </label>
+			<label><font size = "12" face = "굴림체"> <%= data.updatedDate %> </font> </label>
 		</div>
-		
+
 	</div>
 
 	<script type="text/javascript" src="/card.bundle.js" charset="utf-8"></script>
