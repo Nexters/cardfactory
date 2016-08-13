@@ -79,5 +79,17 @@ nav {
     height: 90%;
     margin: 0px 6px;
 }
-
 /* end - menu_option_container */
+
+
+/* start - card_item */
+.card-content-wrap {
+    padding-top: 45%;
+    padding-bottom: 5%;
+}
+
+.card-source-wrap {
+}
+
+/* end - card_item */
+
