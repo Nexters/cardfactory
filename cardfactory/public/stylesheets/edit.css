@@ -37,7 +37,7 @@ body {
 
 #menu_select_option_list > div {
     height: 100%;
-    font-size: 22px;
+    font-size: 16px;
 }
 /* end - menu_select_container */
 
@@ -76,7 +76,7 @@ body {
     margin: 0px 6px;
 }
 
-.font-menu-item {
+.menu-item {
     width: 32%;
     height: 92%;
     margin: 0px;
