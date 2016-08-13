@@ -4,7 +4,9 @@ define([
 ) {
   'use strict';
 
+  function UserCardPage() {
 
   }
 
+  return new UserCardPage();
 });
