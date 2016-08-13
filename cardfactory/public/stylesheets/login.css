@@ -1,0 +1,53 @@
+body {
+}
+#container{
+position:relative;
+}
+#wrapper{
+	position: absolute;
+	top: 100px;
+}
+#wrapper input[type="text"], #wrapper input[type="password"] {
+  width: 80%;
+  margin-left: 0%;
+  position: relative;
+  border: none;
+  border-bottom: 1px solid #BDC3C7;
+  font-family: 'Raleway';
+  font-size: 1.3em;
+  padding: 10px;
+  color: #384D63;
+  transition: all .2s ease-out;
+  font-weight: 500;
+}
+
+#wrapper input[type="text"]:required:valid, #wrapper input[type="password"]:required:valid {
+  border-bottom: 3px solid #2ECC71;
+}
+#wrapper input[type="password"] {
+  margin-top: 20px;
+}
+
+#wrapper #login_btn {
+  width: 80%;
+  margin-left: 10%;
+  position: relative;
+  margin-top: 40px;
+  border: none;
+  background-color: #BDC3C7;
+  font-family: 'Raleway';
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.5em;
+  padding: 20px;
+  cursor: pointer;
+}
+
+#wrapper .placeholder {
+  margin-left: 5%;
+  padding-left: 30px;
+  position: absolute;
+  z-index: 9999;
+  font-size: .9em;
+  color: #BDC3C7;
+}
