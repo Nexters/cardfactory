@@ -104,6 +104,8 @@ define([
 
     if (event === 'changeMenu') {
       $('#menu_select_option_list > div').click(function() {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
         handler($(this).data('menu'));
       });
     }
