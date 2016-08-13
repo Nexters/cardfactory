@@ -1,0 +1,49 @@
+div {
+	height:100%;
+	width:100%;
+}
+.navbar {
+	position:fixed;
+	background-color: rgba(0,0,0,0);
+	border-color:rgba(0,0,0,0);
+	width:100%;
+	height:62px;
+	border-bottom-width: 1px;
+	border-bottom-color: rgba(255,255,255,1);
+	border-bottom-style: bold;
+	z-index:2;
+}
+.navbar-brand {
+	outline-color: rgba(0,0,0,0);
+	padding:0;
+}
+.navbar-menu {
+	display:inline;
+}
+.navbar-menu-img {
+	height:30px;
+	width:30px;
+}
+.navbar-logo-img {
+	margin-top:16px;
+	width:60px;
+	height:30px;
+}
+#navbar-container {
+	position:relative;
+	text-align:center;
+}
+#myPageBtn { 
+	position:absolute;
+	top : 16px;
+	left: 16px;
+}
+
+#editCardBtn {
+	position:absolute;
+	top : 16px;
+	right: 16px;
+}
+#logoBtn {
+	height:30%;
+}

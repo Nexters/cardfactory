@@ -3,19 +3,26 @@
 <head>
     <%- include partial/common-head.ejs %>
 </head>
-<body  style="width:100%">
+<body>
 
-	<%- include partial/card-list.ejs %>
-	
+<%- include partial/common-nav.ejs %>
+
+<link href="/javascripts/bower_components/Swiper/dist/css/swiper.min.css" rel="stylesheet">
+<link href="/stylesheets/card-list-page.css" rel="stylesheet">
+
 <script type="text/javascript" src="/card-list.bundle.js" charset="utf-8"></script>
+<script src="/javascripts/bower_components/Swiper/dist/js/swiper.min.js"></script>
 
-<a href="/">로그인 페이지</a>
-<br>
-<a href="/join">회원가입 페이지</a>
+	<div style="height:100%">
+		<%- include partial/card-list.ejs %>
+	</div>
 
 
-
-<h5>content</h5>
+<script>
+	var swiper = new Swiper('.swiper-container', {
+	    direction: 'vertical'
+	});
+</script>
 
 </body>
 </html>
