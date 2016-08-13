@@ -1,15 +1,19 @@
 var Card = require('../models/card');
 var Session = require('../services/session');
-
+var config = require('./../config/index');
 function CardController() {
 
 }
-
+ 
 CardController.getCardListPage = function(req, res, next) {
   //TODO: get card list from Card model
-  Card.get(req.query, function(err, result) {
+  
+  req.params.pageNum = req.params.pageNum || 0;
+  req.params.perPage = req.params.perPage || 20;
+
+  Card.get(req.params, function(err, result) {
     console.log(result);
-    res.render('card-list-page', { title: '카드 목록 페이지' });
+    res.render('card-list-page', { title: '카드 목록 페이지' , data : result, imgIP : config.imgIP});
   });
 };
 

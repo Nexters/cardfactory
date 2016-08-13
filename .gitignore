@@ -47,3 +47,4 @@ cardfactory/doc
 cardfactory/config/env/
 
 cardfactory/upload
+cardfactory/sql/cardfactory.sql
