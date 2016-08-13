@@ -12,19 +12,25 @@
 		<div id="cardpage_content_div">
 			<div id="cardpage_content_div_div">
 				<font size = "<%= data.fontSize %>" face = "<%= data.font %>">
-					<label id="cardpage_content" disabled> <%= data.content %> </label>
+					<% for (var i = 0 ; i < content.length ; i++) { %>
+						<label class = cardpage_content_class> <%= content[i] %> </label>
+					<% } %>
 				</font>
 			</div>
 
 			<div id="cardpage_source_div">
 				<font size = "12dp" face = "sans">
-					<textarea id="cardpage_content_souce" disabled> <%= data.source %> </textarea>
+
+					<% for (var i = 0 ; i < source.length ; i++) { %>
+						<label class = cardpage_source_class> <%= source[i] %> </label>
+					<% } %>
+
 				</font>
 			</div>
 		</div>
 
 		<div id="cardpage_updatedDate_div">
-			<label><font size = "12" face = "굴림체"> <%= data.updatedDate %> </font> </label>
+			<label><font size = "12" face = "sans"> <%= data.updatedDate %> </font> </label>
 		</div>
 
 	</div>
