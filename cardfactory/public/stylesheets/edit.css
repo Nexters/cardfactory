@@ -89,6 +89,11 @@ nav {
 }
 
 .card-source-wrap {
+
+}
+
+.card-text-input {
+    text-align: center;
 }
 
 /* end - card_item */

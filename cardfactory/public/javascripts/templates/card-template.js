@@ -30,10 +30,10 @@ define([
     this.defaultTemplate
       =	'<div id="card_item" data-type="{{cardTypeId}}" data-font="{{font}}" data-fontsize="{{fontSize}}" data-img="{{img}}">'
       +		'<div class="card-content-wrap text-center">'
-      +		  '<input type="text" id="card_content">{{content}}</input>'
+      +		  '<input type="text" class="card-text-input" id="card_content">{{content}}</input>'
       +		'</div>'
       +		'<div class="card-source-wrap text-center">'
-      + 		'<input type="text" id="card_source">{{source}}</input>'
+      + 		'<input type="text" class="card-text-input" id="card_source">{{source}}</input>'
       +		'</div>'
       +	'</div>';
   }
