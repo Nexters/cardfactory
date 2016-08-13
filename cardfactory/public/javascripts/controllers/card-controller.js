@@ -28,6 +28,16 @@ define([
       self.model.img = data;
       self.view.render('draw', self.model);
     });
+
+    self.view.bind('changeImage', function(data) {
+      self.model.img = data;
+      self.view.render('draw', self.model);
+    });
+
+    self.view.bind('changeTemplate', function(data) {
+      self.model.img = data;
+      self.view.render('draw', self.model);
+    });
   };
 
   CardController.prototype.addCard = function(data) {
