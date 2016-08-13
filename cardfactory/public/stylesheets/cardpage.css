@@ -1,3 +1,21 @@
 body{
 	
 }
+
+#cardpage_div{
+	margin : 100px;
+	width : 500px;
+	height : 600px;
+	overflow : hidden;
+	background-size : cover;
+}
+
+#cardpage_content_div{
+	margin : 30px;
+	text-align:center;
+}
+
+#cardpage_updatedDate_div{
+	margin : 30px;
+
+}

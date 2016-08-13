@@ -6,52 +6,30 @@
     <meta name="title" content="<%= title %>" />
 </head>
 <body>
-	<div>
-		<div id="cardpage_img">
-			<img src=<%= data.img %> />
-		</div>
 
-		<div id="cardpage_content">
-			<label> <%= data.content %> </label>
+	<div id="cardpage_div" style = "background:url(<%= data.img %>) no-repeat;  ">
+
+		<div id="cardpage_content_div">
+			<label><font size = "<%= data.fontSize %>" face = "<%= data.font %>"> <%= data.content %> </font></label>
 		</div>
 		
-		<div id="cardpage_source">
+		<div id="cardpage_source_div">
 			<label><%= data.source %></label>
 		</div>
+
+		<div id="cardpage_updatedDate_div">
+			<label><font size = "2" face = "굴림체"> <%= data.updatedDate %> </font> </label>
+		</div>
 		
-		<div id="cardpage_font">
-			<label><%= data.font %></label>
-		</div>
-
-		<div id="cardpage_fontSize">
-			<label><%= data.fontSize %></label>
-		</div>
-
-		<div id="cardpage_brightness">
-			<label><%= data.brightness %></label>
-		</div>	
-
-		<div id="cardpage_hitsCount">
-			<label><%= data.hitsCount %></label>
-		</div>
-
-		<div id="cardpage_likesCount">
-			<label><%= data.likesCount %></label>
-		</div>
-
-		<div id="cardpage_updatedDate">
-			<label><%= data.updatedDate %></label>
-		</div>
-
-		<div id="cardpage_createdDate">
-			<label><%= data.createdDate %></label>
-		</div>
 	</div>
-
-	<p>Welcome to <%= title %></p>
 
 	<script type="text/javascript" src="/card.bundle.js" charset="utf-8"></script>
 	<!-- Go to www.addthis.com/dashboard to customize your tools -->
 	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-579f14fbebabdd9d"></script>
 </body>
 </html>
+
+
+<!--
+투명도 opacity:.1;
+-->
