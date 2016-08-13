@@ -10,6 +10,15 @@ var CardController = require('../controllers/card');
 router.get('/', CardController.getCardListPage);
 
 /**
+ * @api {get} /cards/:id Get Card Page By Id
+ * @apiName GetCardPageById
+ * @apidGroup Card
+ *
+ * @apiParam {String} id Card unique id
+ */
+router.get('/:id', CardController.getCardPageById);
+
+/**
  * @api {get} /cards/new Get Card Create Page
  * @apiName GetCardCreatePage
  * @apiGroup Card

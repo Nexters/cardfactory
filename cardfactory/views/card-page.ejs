@@ -2,13 +2,56 @@
 <html>
 <head>
     <%- include partial/common-head.ejs %>
+    <link href="/css/cardPage.css" rel="stylesheet">
+    <meta name="title" content="<%= title %>" />
 </head>
 <body>
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+	<div>
+		<div id="cardpage_img">
+			<img src=<%= data.img %> />
+		</div>
 
-<script type="text/javascript" src="/card.bundle.js" charset="utf-8"></script>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-579f14fbebabdd9d"></script>
+		<div id="cardpage_content">
+			<label> <%= data.content %> </label>
+		</div>
+		
+		<div id="cardpage_source">
+			<label><%= data.source %></label>
+		</div>
+		
+		<div id="cardpage_font">
+			<label><%= data.font %></label>
+		</div>
+
+		<div id="cardpage_fontSize">
+			<label><%= data.fontSize %></label>
+		</div>
+
+		<div id="cardpage_brightness">
+			<label><%= data.brightness %></label>
+		</div>	
+
+		<div id="cardpage_hitsCount">
+			<label><%= data.hitsCount %></label>
+		</div>
+
+		<div id="cardpage_likesCount">
+			<label><%= data.likesCount %></label>
+		</div>
+
+		<div id="cardpage_updatedDate">
+			<label><%= data.updatedDate %></label>
+		</div>
+
+		<div id="cardpage_createdDate">
+			<label><%= data.createdDate %></label>
+		</div>
+	</div>
+
+	<p>Welcome to <%= title %></p>
+
+	<script type="text/javascript" src="/card.bundle.js" charset="utf-8"></script>
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-579f14fbebabdd9d"></script>
 </body>
 </html>

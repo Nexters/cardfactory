@@ -8,7 +8,7 @@ var session = require('express-session');
 
 var config = require('./config/index');
 var routes = require('./routes/index');
-var users = require('./routes/users');
+// var users = require('./routes/users');
 var cards = require('./routes/cards');
 var images = require('./routes/images');
 
@@ -46,7 +46,7 @@ if (config.isProduction()) {
 }
 
 app.use('/', routes);
-app.use('/users', users);
+// app.use('/users', users);
 app.use('/cards', cards);
 app.use('/images', images);
 
