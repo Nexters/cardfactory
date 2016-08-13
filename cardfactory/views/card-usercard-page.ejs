@@ -9,10 +9,11 @@
 
 <%- include partial/card-list.ejs %>
 <ul>
- <% result.forEach(function(result){ %>
-  <% }); %>
-  <img src=/images/test.png>
-
+ <% for(var i = 0; i < data.length; i++) { %>
+		<li>
+			<img src = <%= imgIP + data[i].img %> >
+		</li>
+	<% } %>
 </ul>
 <%= result %>
 <script type="text/javascript" src="/card-list.bundle.js" charset="utf-8"></script>
