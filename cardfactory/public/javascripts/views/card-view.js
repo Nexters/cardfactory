@@ -55,7 +55,7 @@ define([
   CardView.prototype.applyStyle = function() {
     var coverImg = this.$cardItem.data('img');
     this.$cardItem.css({
-      'background-image': 'url("' + coverImg + '")'
+      'background-image': 'url("' + coverImg + '")',
       'background-size': 'cover'
     });
 
