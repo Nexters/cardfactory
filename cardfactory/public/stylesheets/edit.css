@@ -2,23 +2,18 @@ body {
     width: 100%;
     height: 100vh;
     margin: 0px;
-    padding: 0px;
-}
-
-nav {
-    width: 100%;
-    height: 8%;
+    padding: 50px 0px 0px 0px;
 }
 
 #card_container {
     width: 100%;
-    height: 60%;
-    padding: 5%;
+    height: 70%;
+    padding: 8%;
 }
 
 #menu_container {
     width: 100%;
-    height: 32%;
+    height: 30%;
     overflow: hidden;
 }
 
@@ -55,7 +50,7 @@ nav {
 #menu_option_container > div {
     display: none;
     height: 100%;
-    padding: 5%;
+    padding: 3%;
 }
 
 #image_menu_option {
@@ -74,11 +69,17 @@ nav {
     width: 100%;
 }
 
-#image_menu_option > img {
+.image-menu-item {
     display: inline-block;
     height: 90%;
     margin: 0px 6px;
 }
+
+.font-menu-item {
+    width: 32%;
+    margin: 0px;
+}
+
 /* end - menu_option_container */
 
 
@@ -89,6 +90,29 @@ nav {
 }
 
 .card-source-wrap {
+
+}
+
+.card-text-input {
+    text-align: center;
+}
+
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px !important;
+    direction: ltr;
+    cursor: pointer;
 }
 
 /* end - card_item */

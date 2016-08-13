@@ -39,9 +39,9 @@ UserController.postLogin = function(req, res, next) {
 UserController.postJoin = function(req, res, next) {
 
 	User.create(req.body, function(err, result){
-
 		if(err) res.status(400).send({msg:"CANNOT_CREATE_USER"});
 		else res.status(200).send({msg:"SUCCESS"});
+
 		
 	});
 };

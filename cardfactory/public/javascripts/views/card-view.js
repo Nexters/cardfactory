@@ -96,9 +96,13 @@ define([
       });
     }
 
-    if (event === 'changeCardType') {
+    if (event === 'changeImage') {
+      $('.image-menu-item').click(function() {
+        handler($(this).data('img'));
+      });
+    }
 
-
+    if (event === 'changeTemplate') {
 
     }
 

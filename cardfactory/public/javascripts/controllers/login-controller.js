@@ -66,6 +66,7 @@ LoginController.prototype.validate = function(data) {
   LoginController.prototype.join = function(data) {
     var self = this;
     location.href='/join';
+    
   };
 
   LoginController.prototype.login = function(data) {

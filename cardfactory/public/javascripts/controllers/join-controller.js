@@ -80,12 +80,15 @@ define([
       email : data['email'],
       password : data['pw']
     };
-    HttpUtil.postData('/users/join',_data,function(err, result) {
+
+    HttpUtil.postData('users/join',_data,function(err, result) {
       if(err)
       {
         alert(err);
+        return;
       }
       console.log(result);
+      location.href = "/";
     });
     //에러 처리 
     //self.view.showError(err);
