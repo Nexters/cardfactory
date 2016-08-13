@@ -88,8 +88,6 @@ Card.get = function(params, finalCallback) {
 // Get card by Id
 Card.getById = function(params, finalCallback) {
 
-  console.log("2hello");
-  console.log(params);
   var query = "SELECT * FROM card WHERE Id = ?";
 
   async.waterfall([

@@ -47,7 +47,7 @@ LoginController.prototype.validate = function(data) {
     return errorStatus;
   };
   LoginController.prototype.postLogin = function(data) {
-    // TODO: 로그인 처리
+
     var _data={
       email : data['email'],
       password :data['pw']
@@ -70,13 +70,12 @@ LoginController.prototype.validate = function(data) {
   };
 
   LoginController.prototype.login = function(data) {
-    //TODO: 로그인 코드 처리
     console.log(data);
     var self = this;    
     if (self.validate(data)) {
       console.log("successful!");
       self.postLogin(data);
-      // TODO: 회원가입 요청
+
     }
 
   };

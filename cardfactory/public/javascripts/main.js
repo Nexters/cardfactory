@@ -1,18 +1,18 @@
 //main.js
 define([
   './bower_components/jquery/dist/jquery',
-  './controllers/login-controller',
-  './views/login-view'
+  './controllers/main-controller',
+  './views/main-view'
 ], function (
   $,
-  LoginController,
-  LoginView
+  MainController,
+  MainView
 ) {
   'use strict';
 
   function MainPage() {
-    this.view = new LoginView();
-    this.controller = new LoginController(this.view);
+    this.view = new MainView();
+    this.controller = new MainController(this.view);
   }
 
   return new MainPage();
