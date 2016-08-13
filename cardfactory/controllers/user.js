@@ -41,7 +41,7 @@ UserController.postJoin = function(req, res, next) {
 	User.create(req.body, function(err, result){
 
 		if(err) res.status(400).send("CANNOT_CREATE_USER");
-		else res.status(200).send("SUCCESS");
+		else res.status(200).send({"result" : "SUCCESS"});
 		
 	});
 };
@@ -51,7 +51,7 @@ UserController.putUser = function(req, res, next){
 	req.body.id = session.getSessionId(req);
 	User.update(req.body, function(err, result){
 		if(err) res.status(400).send("INVALID_USER_UPDATE");
-		else res.status(200).send("SUCCESS");
+		else res.status(200).send({"result" : "SUCCESS"});
 	});
 }
 
