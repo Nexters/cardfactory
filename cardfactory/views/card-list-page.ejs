@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
     <%- include partial/common-head.ejs %>
 </head>
-<body>
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<body  style="width:100%">
 
-<%- include partial/card-list.ejs %>
+	<%- include partial/card-list.ejs %>
+	
 <script type="text/javascript" src="/card-list.bundle.js" charset="utf-8"></script>
 
-<ul>
-	<% for(var i = 0; i < data.length; i++) { %>
-		<li>
-			<img src = <%= imgIP + data[i].img %> >
-		</li>
-	<% } %>
-</ul>
+<a href="/">로그인 페이지</a>
+<br>
+<a href="/join">회원가입 페이지</a>
+
+
 
 <h5>content</h5>
 

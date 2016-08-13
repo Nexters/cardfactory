@@ -102,12 +102,12 @@ define([
       });
     }
 
-    if (event === 'changeTemplate') {
+    if (event === 'changeFont'){
 
     }
 
-    if (event === ''){
-      
+    if (event === 'changeFontSize'){
+
     }
   };
 

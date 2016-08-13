@@ -1,3 +1,17 @@
 body {
+}
 
+.navbar {
+	position:fixed;
+	background-color: rgba(0,0,0,0);
+	border-color:rgba(0,0,0,0);
+}
+
+.navbar-brand {
+	outline-color: rgba(0,0,0,0);
+	padding:0;
+}
+.navbar-img {
+	max-height:100%;
+	max-width:100%;
 }
