@@ -69,11 +69,17 @@ body {
     width: 100%;
 }
 
-#image_menu_option > img {
+.image-menu-item {
     display: inline-block;
     height: 90%;
     margin: 0px 6px;
 }
+
+.font-menu-item {
+    width: 32%;
+    margin: 0px;
+}
+
 /* end - menu_option_container */
 
 
@@ -108,5 +114,6 @@ body {
     direction: ltr;
     cursor: pointer;
 }
+
 /* end - card_item */
 
