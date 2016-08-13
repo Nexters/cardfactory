@@ -67,7 +67,7 @@ Card.get = function(params, finalCallback) {
 
 // Get card by Id
 Card.getById = function(params, finalCallback) {
-  var query = "SELECT * FROM card WHERE Id = ?;";
+  var query = "SELECT * FROM card WHERE Id = ? LIMIT ?,?;";
 
   async.waterfall([
     function(callback){
@@ -79,7 +79,7 @@ Card.getById = function(params, finalCallback) {
     },
     function(connection, callback){
 
-      connection.query( query, [params.id], function(err, rows){
+      connection.query( query, [params.id,params.pageNum * params.perPage, params.perPage], function(err, rows){
         if(err) callback(err);
         else    callback(null, rows[0]);
         connection.release();
@@ -92,8 +92,8 @@ Card.getById = function(params, finalCallback) {
 };
 
 // Get card by Id Order by UpdatedDate
-Card.getUserCard - function(params, finalCallback) {
-  var query = "SELECT * FROM card WHERE userId = ? ORDER BY updatedDate  LIMIT ?,?";
+Card.getUserCard = function(params, finalCallback) {
+  var query = "SELECT * FROM card WHERE userId = ? ORDER BY updatedDate LIMIT ?,?";
 
   async.waterfall([
     function(callback){

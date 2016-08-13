@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include partial/common-head.ejs %>
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+
+<%- include partial/card-list.ejs %>
+<ul>
+  <img src=<% result.forEach(function(result){ %>
+  <% }); %>
+</ul>
+<%= result %>
+<script type="text/javascript" src="/card-list.bundle.js" charset="utf-8"></script>
+</body>
+</html>
