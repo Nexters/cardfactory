@@ -18,6 +18,7 @@ define([
    * @param {String} [params.img] 이미지
    * @param {String} [params.content] 내용
    * @param {String} [params.source] 출처
+   * @param {Number} [params.brightness] 밝기
    *
    * @constructor
    */
@@ -28,6 +29,7 @@ define([
     this.img = params.img;
     this.content = params.content;
     this.source = params.source;
+    this.brightness = params.brightness;
   }
 
   /**
@@ -37,6 +39,7 @@ define([
    * @param {String} data.cardTypeId
    * @param {String} data.font
    * @param {Number} data.fontSize
+   * @param {Number} data.brightness
    * @param {String} data.img
    * @param {String} data.content
    * @param {String} data.source
@@ -51,6 +54,7 @@ define([
       cardTypeId: data.cardTypeId,
       font: data.font,
       fontSize: data.fontSize,
+      brightness: data.brightness,
       img: data.img,
       content: data.content,
       source: data.source
@@ -66,6 +70,7 @@ define([
    * @param {String} data.cardTypeId
    * @param {String} data.font
    * @param {Number} data.fontSize
+   * @param {Number} data.brightness
    * @param {String} data.img
    * @param {String} data.content
    * @param {String} data.source
@@ -80,6 +85,7 @@ define([
       cardTypeId: data.cardTypeId,
       font: data.font,
       fontSize: data.fontSize,
+      brightness: data.brightness,
       img: data.img,
       content: data.content,
       source: data.source
@@ -99,6 +105,10 @@ define([
     }
     if (!_.isNumber(parseInt(data.fontSize))) {
       alert("폰트 크기를 선택해주세요!");
+      return false;
+    }
+    if (!_.isString(data.brightness)) {
+      alert("밝기를 선택해주세요!");
       return false;
     }
     if (!_.isString(data.img)) {

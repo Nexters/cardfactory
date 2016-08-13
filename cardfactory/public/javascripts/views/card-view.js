@@ -4,7 +4,9 @@ define([
 ) {
   'use strict';
 
-  var MAX_ROWS = 2;
+  var MAX_ROWS = 6;
+  var LINE_HEIGHT = 50;
+  var MAX_PADDING_TOP = MAX_ROWS * LINE_HEIGHT / 2;
 
   function CardView(template) {
     this.template = template;
@@ -29,11 +31,10 @@ define([
 
         self.$content.unbind('keydown').keydown(function(event) {
           var rows = $(this).val().split('\n').length;
-          if (rows === 1) {
-            $(this).css('height', '60px');
-          } else if (rows === 2) {
-            $(this).css('height', '120px');
-          }
+          var height = parseInt(rows * LINE_HEIGHT);
+          var paddingTop = parseInt(MAX_PADDING_TOP - ((rows - 1) * (LINE_HEIGHT / 2)));
+          $(this).css('height', height + 'px');
+          $(this).css('margin-top', paddingTop + 'px');
 
           // 2줄 넘어가서 엔터 쳤을 때 엔터키 막기 위한 처리
           if (event.which === 13 && rows >= MAX_ROWS) {
@@ -57,7 +58,7 @@ define([
             break;
           case 'brightness':
             self.$brightnessMenu.show();
-            self.$fontSizeMenu.siblings().hide();
+            self.$brightnessMenu.siblings().hide();
             break;
           default:
             break;
@@ -133,6 +134,12 @@ define([
     if (event === 'changeFontSize'){
       $('#font_size_menu_option > img').click(function() {
         handler($(this).data('fontsize'));
+      });
+    }
+
+    if (event === 'changeBrightness'){
+      $('#brightness_menu_option > img').click(function() {
+        handler($(this).data('brightness'));
       });
     }
   };
