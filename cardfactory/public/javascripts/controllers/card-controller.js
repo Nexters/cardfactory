@@ -35,12 +35,12 @@ define([
     });
 
     self.view.bind('changeFont', function(data) {
-      self.model.img = data;
+      self.model.font = data;
       self.view.render('draw', self.model);
     });
 
     self.view.bind('changeFontSize', function(data) {
-      self.model.img = data;
+      self.model.fontSize = data;
       self.view.render('draw', self.model);
     });
   };

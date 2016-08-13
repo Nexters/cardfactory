@@ -4,6 +4,9 @@ define([
 ) {
   'use strict';
 
+  var DEFAULT_FONT = 'Nanum';
+  var DEFAULT_FONT_SIZE = '30';
+
   var htmlEscapes = {
     '&': '&amp;',
     '<': '&lt;',
@@ -43,9 +46,9 @@ define([
     // TODO: 카드 타입에 따라 템플릿 다르게 그려줘야함!
     var template = this.defaultTemplate;
 
-    template = template.replace('{{cardTypeId}}', data.cardTypeId || '');
-    template = template.replace('{{fontSize}}', data.fontSize || '');
-    template = template.replace('{{font}}', data.font || '');
+    template = template.replace('{{cardTypeId}}', data.cardTypeId || 1);
+    template = template.replace('{{fontSize}}', data.fontSize || DEFAULT_FONT_SIZE);
+    template = template.replace('{{font}}', data.font || DEFAULT_FONT);
     template = template.replace('{{img}}', data.img || '');
     template = template.replace('{{content}}', escape(data.content) || '');
     template = template.replace('{{source}}', escape(data.source) || '');
