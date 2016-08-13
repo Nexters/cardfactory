@@ -43,6 +43,11 @@ define([
       self.model.fontSize = data;
       self.view.render('draw', self.model);
     });
+
+    self.view.bind('changeBrightness', function(data) {
+      self.model.brightness = data;
+      self.view.render('draw', self.model);
+    });
   };
 
   CardController.prototype.addCard = function(data) {

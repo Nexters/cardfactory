@@ -135,6 +135,12 @@ define([
         handler($(this).data('fontsize'));
       });
     }
+
+    if (event === 'changeBrightness'){
+      $('#brightness_menu_option > img').click(function() {
+        handler($(this).data('brightness'));
+      });
+    }
   };
 
   return CardView;
