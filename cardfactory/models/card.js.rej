@@ -1,0 +1,10 @@
+diff a/cardfactory/models/card.js b/cardfactory/models/card.js	(rejected hunks)
+@@ -99,7 +99,7 @@
+     },
+     function(connection, callback){
+ 
+-      connection.query( query, [params.userId,params.pageNum * params.perPage, params.perPage], function(err, rows){
++      connection.query( query, [params.id,params.pageNum * params.perPage, params.perPage], function(err, rows){
+         if(err) callback(err);
+         else    callback(null, rows[0]);
+         connection.release();

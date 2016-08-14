@@ -99,7 +99,7 @@ Card.getById = function(params, finalCallback) {
     },
     function(connection, callback){
 
-      connection.query( query, [params.id,params.pageNum * params.perPage, params.perPage], function(err, rows){
+      connection.query( query, [params.userId,params.pageNum * params.perPage, params.perPage], function(err, rows){
         if(err) callback(err);
         else    callback(null, rows[0]);
         connection.release();
@@ -124,16 +124,16 @@ Card.getUserCard = function(params, finalCallback) {
       });
     },
     function(connection, callback){
-      // params.id 가 유저의 id
-      connection.query( query, [params.id, params.pageNum * params.perPage, params.perPage], function(err, rows){
+      // params.userId 가 유저의 id
+      connection.query( query, [params.userId, params.pageNum * params.perPage, params.perPage], function(err, rows){
         if(err) callback(err);
-        else    callback(null, rows[0]);
+        else    callback(null, rows);
         connection.release();
       });
     }
-    ], function(err, row){
+    ], function(err, rows){
       if(err) finalCallback(err, null);
-      else    finalCallback(err, row);
+      else    finalCallback(err, rows);
     });
 };
 
