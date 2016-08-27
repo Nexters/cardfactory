@@ -21,11 +21,11 @@ CardController.getCardPageById = function(req, res, next) {
   //TODO: get card by id from Card model
   Card.getById(req.params, function(err, result) {
     console.log(result);
+    
+    var content = result.content.split('\n');
+    var source = result.source.split('\n');
 
-    var contents = result.content.split('\n');
-    var sources = result.source.split('\n');
-
-    res.render('card-page', { title: '카드 페이지' , data : result, content : contents, source : sources, writer : result.nickname});
+    res.render('card-page', { title: '카드 페이지' , data : result, content : content, source : source});
   });
 };
 
@@ -38,11 +38,10 @@ CardController.getCardEditPage = function(req, res, next) {
 };
 
 CardController.countUserCard = function(req, res, next) {
+  req.params.CardCount=req.params.CardCount;
 
-  req.params.userCardNum=req.params.userId;
-
-  Card.getUserCard(req.params, function(err, result) {
-    res.render('card-usercard-page', { userCardNum: req.params.userCardNum });
+  Card.countUserCard(req.params, function(err, result) {
+    res.render('card-usercard-page', { CardCount: req.params.CardCount});
   });
 };
 
@@ -53,7 +52,7 @@ CardController.getUserCardPage = function(req, res, next) {
   req.params.userId=req.params.userId;
 
   Card.getUserCard(req.params, function(err, result) {
-    res.render('card-usercard-page', { userCardNum: req.params.userCardNum, userId: req.params.userId, data: result , imgIP : config.imgIP});
+    res.render('card-usercard-page', { userCardNum: req.params.CardCount, userId: req.params.userId, data: result , imgIP : config.imgIP});
   });
 };
 
