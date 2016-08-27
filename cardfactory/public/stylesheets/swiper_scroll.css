@@ -7,14 +7,15 @@ body {
         padding: 0;
 }
 .swiper-container {
-        width: 80%;
+        margin-top:10%;
+        width: 70%;
         height: 60%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
     
 }
 
-#title{
-      top:200px;
-}
+
 .swiper-slide {
         text-align: center;
         font-size: 18px;
