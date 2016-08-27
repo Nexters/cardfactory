@@ -158,15 +158,46 @@ async.waterfall([
       var query = "SELECT COUNT(*) FROM card WHERE userId = ?";
 
       connection.query( query, [params.userId], function(err, rows){
-        console.log(rows);
+        console.log(rows[0]['COUNT(*)']);
+        var result=rows[0]['COUNT(*)'];
         if(err) callback(err);
-        else    callback(null, rows);
+        else    callback(null, result);
         connection.release();
       });
     }
     ], function(err, rows){
       if(err) finalCallback(err, null);
       else    finalCallback(err, rows);
+    });
+
+};
+
+
+Card.GetNicknameById = function(params, finalCallback) {
+
+async.waterfall([
+    function(callback){
+
+      pool.getConnection(function(err, connection){
+        if(err) callback(err);
+        else    callback(null, connection);
+      });
+    },
+
+
+    function(connection, callback){
+      var query = "SELECT nickname FROM user WHERE id = ?";
+
+      connection.query( query, [params.userId], function(err, rows){
+        console.log(rows);
+        if(err) callback(err);
+        else    callback(null, rows[0]);
+        connection.release();
+      });
+    }
+    ], function(err, rows){
+      if(err) finalCallback(err, null);
+      else    finalCallback(err, rows[0]);
     });
 
 };
