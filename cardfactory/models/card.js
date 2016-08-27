@@ -24,16 +24,16 @@ function Card() {
  * @returns {*}
  */
 Card.validate = function(params) {
-  if (!validator.isInt(params.userId)) {
+  if (!validator.isInt(params.userId.toString())) {
     return 'userId error';
   }
-  if (!validator.isInt(params.cardTypeId)) {
+  if (!validator.isInt(params.cardTypeId.toString())) {
     return 'cardTypeId error';
   }
-  if (!validator.isInt(params.fontSize)) {
+  if (!validator.isInt(params.fontSize.toString())) {
     return 'fontSize error';
   }
-  if (!validator.isInt(params.brightness)) {
+  if (!validator.isInt(params.brightness.toString())) {
     return 'brightness error';
   }
   if (!_.isString(params.font)) {
