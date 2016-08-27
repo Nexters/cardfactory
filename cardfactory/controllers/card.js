@@ -38,7 +38,7 @@ CardController.getCardPageById = function(req, res, next) {
     var content = result.content.split('\n');
     var source = result.source.split('\n');
 
-    res.render('card-page', { title: '카드 페이지' , data : result, content : content, source : source});
+    res.render('card-page', { title: '카드 페이지' , data : result, content : content, source : source, writer : result.nickname});
   });
 };
 
