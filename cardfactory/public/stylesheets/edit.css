@@ -142,6 +142,7 @@ body {
 #card_content {
     width: 95%;
     height: 50px;
+    color: black;
     margin-top: 150px;
     max-height: 450px;
     resize: none;
@@ -159,6 +160,7 @@ body {
 #card_source {
     width: 95%;
     height: 30px;
+    color: black;
     font-size: 18px;
 
     background: transparent;
@@ -180,5 +182,4 @@ body {
 
 #save_card_btn > img {
     width: 60px;
-
 }
