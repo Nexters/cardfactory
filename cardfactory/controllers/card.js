@@ -15,7 +15,15 @@ CardController.getCardListPage = function(req, res, next) {
 
     for( i in result ){
       result[i].content = result[i].content.split('\n');
+      var date = new Date(result[i].updatedDate);
+      result[i].updatedDate = 
+        date.getMonth() + '.' +
+        date.getDate() + '  ' +
+        date.getHours() + ':' +
+        date.getMinutes() + ':' +
+        date.getSeconds()
     }
+
 
     if(Session.hasSession(req)){
       res.render('card-list-page', { 

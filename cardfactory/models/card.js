@@ -59,7 +59,7 @@ Card.validate = function(params) {
 */
 Card.get = function(params, finalCallback) {
 
-  var query = "SELECT * FROM card ORDER BY updatedDate LIMIT ?,?";
+  var query = "SELECT * FROM card ORDER BY updatedDate DESC LIMIT ?,?";
 
   async.waterfall([
     function(callback){
@@ -216,7 +216,7 @@ Card.getUserCard = function(params, finalCallback) {
 
 
     function(connection, callback){
-      var query = "SELECT * FROM card WHERE userId = ? ORDER BY updatedDate LIMIT ?,?;";
+      var query = "SELECT * FROM card WHERE userId = ? ORDER BY updatedDate DESC LIMIT ?,?;";
       // params.userId 가 유저의 id
       connection.query( query, [params.userId, params.pageNum * params.perPage, params.perPage], function(err, rows){
         console.log(rows);
@@ -232,8 +232,8 @@ Card.getUserCard = function(params, finalCallback) {
 };
 
 
-// Create new card
-Card.create = function(params, finalCallback) {
+// Create new 
+Card.create = function(params, finalCallback ){
   var error = this.validate(params);
   if (error) {
     return finalCallback(error);
