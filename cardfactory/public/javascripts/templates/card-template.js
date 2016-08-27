@@ -31,7 +31,7 @@ define([
 
   function CardTemplate() {
     this.defaultTemplate
-      =	'<div id="card_item" data-type="{{cardTypeId}}" data-font="{{font}}" data-fontsize="{{fontSize}}" data-img="{{img}}">'
+      =	'<div id="card_item" data-type="{{cardTypeId}}" data-font="{{font}}" data-fontsize="{{fontSize}}" data-img="{{img}}" data-brightness="{{brightness}}">'
       +		'<div class="card-content-wrap text-center">'
       +		  '<textarea id="card_content" class="card-text-input" placeholder="내용을 입력해주세요.">{{content}}</textarea>'
       +		'</div>'
@@ -50,6 +50,7 @@ define([
     template = template.replace('{{fontSize}}', data.fontSize || DEFAULT_FONT_SIZE);
     template = template.replace('{{font}}', data.font || DEFAULT_FONT);
     template = template.replace('{{img}}', data.img || '');
+    template = template.replace('{{brightness}}', data.brightness || '');
     template = template.replace('{{content}}', escape(data.content) || '');
     template = template.replace('{{source}}', escape(data.source) || '');
 

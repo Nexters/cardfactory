@@ -64,10 +64,7 @@ define([
   };
   
   Card.prototype.validate = function(data) {
-    if (!_.isString(data.cardTypeId)) {
-      alert("카드 타입을 선택해주세요!");
-      return false;
-    }
+    data.cardTypeId = 1;
     if (!_.isString(data.font)) {
       alert("폰트를 선택해주세요!");
       return false;
@@ -76,7 +73,7 @@ define([
       alert("폰트 크기를 선택해주세요!");
       return false;
     }
-    if (!_.isString(data.brightness)) {
+    if (!_.isNumber(data.brightness)) {
       alert("밝기를 선택해주세요!");
       return false;
     }
