@@ -4,6 +4,9 @@
     <%- include partial/common-head.ejs %>
     <link href="/css/cardPage.css" rel="stylesheet">
     <meta name="title" content="<%= title %>" />
+	<meta property="og:title" content="쓰담" />
+	<meta property="og:description" content="<%= data.content %>" />
+	<meta property="og:image" content="<%= data.img %>" />
 </head>
 <body>
 	<div id="cardpage_div" style = "background:url(<%= data.img %>) no-repeat; background-size : cover;  ">
