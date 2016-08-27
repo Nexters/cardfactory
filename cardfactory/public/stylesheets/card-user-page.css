@@ -1,9 +1,15 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
 html, body {
     height:100%;
     background: #7F7F7F;
 }
 #userId{
 	font-size: 36px;
+	font-family: 'Nanum Myeongjo';
+}
+#userCardCount{
+	font-size: 18px;
+	font-family: 'Nanum Myeongjo';
 }
 #user_info{
 	margin-top:50px;

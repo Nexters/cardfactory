@@ -114,7 +114,7 @@ Card.getById = function(params, finalCallback) {
 
 // Count card by userId
 Card.countUserCard = function(params, finalCallback) {
-  var query = "SELECT count(*) FROM card WHERE userId = ?";
+  
 
   async.waterfall([
     function(callback){
@@ -125,10 +125,12 @@ Card.countUserCard = function(params, finalCallback) {
       });
     },
     function(connection, callback){
-      //userCardNum은 user가 만든 카드의 수
-      connection.query( query, [query], function(err, rows){
+      console.log("hello");
+      var query = 'SELECT COUNT(*) AS CardCount FROM card WHERE userId = ?';
+      //CardCount은 user가 만든 카드의 수
+      connection.query( query,[params.CardCount], function(err, rows){
         if(err) callback(err);
-        else    callback(null, rows[0]);
+        else    callback(null, rows);
         connection.release();
       });
     }
@@ -136,11 +138,31 @@ Card.countUserCard = function(params, finalCallback) {
       if(err) finalCallback(err, null);
       else    finalCallback(err, row);
     });
+
 };
+
+
+Card.countUserCard = function(params, finalCallback) {
+  var error = this.validate(params);
+  if (error) {
+    return finalCallback(error);
+  }
+  async.waterfall([
+    function(callback) {
+     var query = 'SELECT COUNT(*) AS CardCount FROM card WHERE userId = ?';
+    
+      pool.query(query,[params.CardCount] function(err, result) {
+        callback(err, result);
+      });
+    }
+  ], function (err, result) {
+    finalCallback(err, result);
+  });
+};
+
 
 // Get card by Id Order by UpdatedDate
 Card.getUserCard = function(params, finalCallback) {
-  var query = "SELECT * FROM card WHERE userId = ? ORDER BY updatedDate LIMIT ?,?";
 
   async.waterfall([
     function(callback){
@@ -150,7 +172,10 @@ Card.getUserCard = function(params, finalCallback) {
         else    callback(null, connection);
       });
     },
+
+
     function(connection, callback){
+      var query = "SELECT * FROM card WHERE userId = ? ORDER BY updatedDate LIMIT ?,?;";
       // params.userId 가 유저의 id
       connection.query( query, [params.userId, params.pageNum * params.perPage, params.perPage], function(err, rows){
         if(err) callback(err);
