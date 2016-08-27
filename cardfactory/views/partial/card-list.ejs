@@ -8,10 +8,11 @@
 				<div id="card-content" style="color:white;font-family:'Nanum Myeongjo';line-height:200%;text-align:center;display:table;">
 
 				<% for(var j = 0 ; j < data[i].content.length ; j++){ %>
-					<span><%=data[i].content[j] %></span><br/>
+					<span style="font-size:<%= data[i].fontSize %>px;"><%=data[i].content[j] %></span><br/>
 				<% } %>
 				<br/><br/>
-				<span>- <%= data[i].source %></span> -<br/>
+				<span>- <%= data[i].source %> -</span>
+				<br/>
 				<span> <%= data[i].updatedDate %> </span>
 				</div>
 			</a>
