@@ -151,7 +151,7 @@ Card.countUserCard = function(params, finalCallback) {
     function(callback) {
      var query = 'SELECT COUNT(*) AS CardCount FROM card WHERE userId = ?';
     
-      pool.query(query,[params.CardCount] function(err, result) {
+      pool.query(query,[params.CardCount], function(err, result) {
         callback(err, result);
       });
     }
