@@ -22,7 +22,7 @@ CardController.getCardListPage = function(req, res, next) {
         title: '카드 목록 페이지' ,
         data : result, 
         imgIP : config.imgIP,
-        userId : Session.getSessionId()
+        userId : Session.getSessionId(req)
       });
     }else{
       res.render('card-list-page', { title: '카드 목록 페이지' , data : result, imgIP : config.imgIP});

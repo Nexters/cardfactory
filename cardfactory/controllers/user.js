@@ -28,6 +28,9 @@ UserController.postLogin = function(req, res, next) {
 				else{
 					result.userId = result.id;
 					session.registerSession(req, result);
+					console.log('result');
+					console.log(result);
+
 					res.status(200).send({ msg : "SUCCESS"});
 				} 
   		});
