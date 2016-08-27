@@ -88,7 +88,7 @@ define([
         return;
       }
       console.log(result);
-      location.href = "/";
+      location.href = "/login";
     });
     //에러 처리 
     //self.view.showError(err);

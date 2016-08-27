@@ -57,6 +57,7 @@ LoginController.prototype.validate = function(data) {
       {
         alert(err);
       }
+      location.href = "/cards";
       console.log(result);
     });
     //에러 처리 
