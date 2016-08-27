@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     'main': './main.js',
     'join': './join.js',
+    'login': './login.js',
     'card': './card.js',
     'card-list': './card-list.js',
     'card-edit': './card-edit.js'
