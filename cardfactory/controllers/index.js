@@ -4,7 +4,7 @@ function IndexController() {
 }
 
 IndexController.getMainPage = function(req, res, next) {
-  res.render('index', { title: '메인', name: 'tee' });
+  res.redirect('/cards');
 };
 
 IndexController.getLoginPage = function(req, res, next) {

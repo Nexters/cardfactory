@@ -3,9 +3,15 @@
 	<div id="navbar-container">
 		
 		<div class="navbar-menu">
-			<a id="myPageBtn" href="/">
-				<img class="navbar-menu-img" src="/resources/myPage.png">
-			</a>	
+			<% if (typeof userId !== "undefined") { %>
+				<a id="myPageBtn" href="/users/<%= userId %>">
+					<img class="navbar-menu-img" src="/resources/myPage.png">
+				</a>
+			<% } else { %>
+				<a id="myPageBtn" href="/login">
+					<img class="navbar-menu-img" src="/resources/myPage.png">
+				</a>
+			<% } %>
 		</div>
 
 		<div class="navbar-menu">
@@ -15,9 +21,15 @@
 		</div>
 		
 		<div class="navbar-menu">
-			<a id="editCardBtn" href="/cards/new">
-				<img class="navbar-menu-img" src="/resources/editBtn.png">
-			</a>
+			<% if (typeof userId !== "undefined") { %>
+				<a id="editCardBtn" href="/<%= userId %>/edit">
+					<img class="navbar-menu-img" src="/resources/editBtn.png">
+				</a>
+			<% } else { %>
+				<a id="editCardBtn" href="/login">
+					<img class="navbar-menu-img" src="/resources/editBtn.png">
+				</a>
+			<% } %>
 		</div>
 	</div>
 

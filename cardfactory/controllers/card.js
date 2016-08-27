@@ -12,11 +12,24 @@ CardController.getCardListPage = function(req, res, next) {
   req.params.perPage = req.params.perPage || 100;
 
   Card.get(req.params, function(err, result) {
-    console.log(result);
-    res.render('card-list-page', { title: '카드 목록 페이지' , data : result, imgIP : config.imgIP});
+
+    for( i in result ){
+      result[i].content = result[i].content.split('\n');
+    }
+
+    if(Session.hasSession(req)){
+      res.render('card-list-page', { 
+        title: '카드 목록 페이지' ,
+        data : result, 
+        imgIP : config.imgIP,
+        userId : Session.getSessionId()
+      });
+    }else{
+      res.render('card-list-page', { title: '카드 목록 페이지' , data : result, imgIP : config.imgIP});
+    }
   });
 };
-  
+
 CardController.getCardPageById = function(req, res, next) {
   //TODO: get card by id from Card model
   Card.getById(req.params, function(err, result) {
