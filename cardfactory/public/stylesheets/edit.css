@@ -173,3 +173,12 @@ body {
 
 /* end - card_item */
 
+#save_card_btn {
+    float: right;
+    margin: 5px;
+}
+
+#save_card_btn > img {
+    width: 60px;
+
+}

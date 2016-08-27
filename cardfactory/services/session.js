@@ -21,6 +21,7 @@ SessionService.getSessionId = function (req) {
 SessionService.registerSession = function (req, user) {
   req.session.userId = user.userId;
   req.session.nickname = user.nickname;
+  console.log('session is registered');
 };
 
 SessionService.destroySession = function (req) {
