@@ -70,6 +70,7 @@ define([
   };
 
   CardView.prototype.redraw = function(model) {
+    console.log(model);
     if (model.img) {
       this.$cardItem.data('img', model.img);
     }
