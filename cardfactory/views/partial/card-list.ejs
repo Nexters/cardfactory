@@ -5,7 +5,7 @@
 		<div class="swiper-slide" 
 			style="background-image:url('<%= imgIP + data[i].img %>');background-size:cover;">
 			<a href="/cards/<%= data[i].id %>" style="height:100%">
-				<div id="card-content" style="color:white;font-family:'Nanum Myeongjo';line-height:200%;text-align:center;display:table;">
+				<div id="card-content" style="color:white;font-family:'Nanum Myeongjo';line-height:200%;text-align:center;display:table;font-weight:bold;">
 
 				<% for(var j = 0 ; j < data[i].content.length ; j++){ %>
 					<span style="font-size:<%= data[i].fontSize %>px;"><%=data[i].content[j] %></span><br/>
