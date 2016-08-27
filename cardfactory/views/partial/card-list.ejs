@@ -2,7 +2,15 @@
 <div class="swiper-container">
 	<div class="swiper-wrapper">
 	<% for(var i = 0; i < data.length; i++) { %>
-		<div class="swiper-slide" style="background-image:url('<%= imgIP + data[i].img %>');background-size:cover">
+		<div class="swiper-slide" 
+			style="background-image:url('<%= imgIP + data[i].img %>');background-size:cover;">
+			
+			<div id="card-content" style="color:white;font-family:'Nanum Myeongjo';line-height:200%;text-align:center;display:table;">
+
+			<% for(var j = 0 ; j < data[i].content.length ; j++){ %>
+				<span><%=data[i].content[j] %></span><br/>
+			<% } %>
+			</div>
 		</div>
 	<% } %>
 	</div>	

@@ -6,9 +6,9 @@ module.exports = {
   db: {
     database: 'cardfactory',
     host: 'localhost',
-    port: 3306,
+    port: 5306,
     user: 'root',
-    password: 'admin',
+    password: 'root',
     connectionLimit: 10
   }
 };
