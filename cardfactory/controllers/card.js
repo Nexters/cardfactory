@@ -51,22 +51,29 @@ CardController.getCardEditPage = function(req, res, next) {
 };
 
 CardController.countUserCard = function(req, res, next) {
-  req.params.CardCount=req.params.CardCount;
 
   Card.countUserCard(req.params, function(err, result) {
-    res.render('card-usercard-page', { CardCount: req.params.CardCount});
+    res.render('card-usercard-page', { CardCount: result} );
   });
 };
 
 CardController.getUserCardPage = function(req, res, next) {
+
 
   req.params.pageNum = req.params.pageNum || 0;
   req.params.perPage = req.params.perPage || 100;
   req.params.userId=req.params.userId;
 
   Card.getUserCard(req.params, function(err, result) {
-    res.render('card-usercard-page', { userCardNum: req.params.CardCount, userId: req.params.userId, data: result , imgIP : config.imgIP});
+    res.render('card-usercard-page', {userId: req.params.userId, data: result , imgIP : config.imgIP});
   });
+
+
+  Card.countUserCard(req.params, function(err, result) {
+    res.render('card-usercard-page', { CardCount: result} );
+  });
+
+  
 };
 
 

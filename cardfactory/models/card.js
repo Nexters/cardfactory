@@ -143,23 +143,33 @@ Card.countUserCard = function(params, finalCallback) {
 
 
 Card.countUserCard = function(params, finalCallback) {
-  var error = this.validate(params);
-  if (error) {
-    return finalCallback(error);
-  }
-  async.waterfall([
-    function(callback) {
-     var query = 'SELECT COUNT(*) AS CardCount FROM card WHERE userId = ?';
-    
-      pool.query(query,[params.CardCount], function(err, result) {
-        callback(err, result);
+
+async.waterfall([
+    function(callback){
+
+      pool.getConnection(function(err, connection){
+        if(err) callback(err);
+        else    callback(null, connection);
+      });
+    },
+
+
+    function(connection, callback){
+      var query = "SELECT COUNT(*) FROM card WHERE userId = ?";
+
+      connection.query( query, [params.userId], function(err, rows){
+        console.log(rows);
+        if(err) callback(err);
+        else    callback(null, rows);
+        connection.release();
       });
     }
-  ], function (err, result) {
-    finalCallback(err, result);
-  });
-};
+    ], function(err, rows){
+      if(err) finalCallback(err, null);
+      else    finalCallback(err, rows);
+    });
 
+};
 
 // Get card by Id Order by UpdatedDate
 Card.getUserCard = function(params, finalCallback) {
@@ -178,6 +188,7 @@ Card.getUserCard = function(params, finalCallback) {
       var query = "SELECT * FROM card WHERE userId = ? ORDER BY updatedDate LIMIT ?,?;";
       // params.userId 가 유저의 id
       connection.query( query, [params.userId, params.pageNum * params.perPage, params.perPage], function(err, rows){
+        console.log(rows);
         if(err) callback(err);
         else    callback(null, rows);
         connection.release();
