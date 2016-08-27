@@ -1,0 +1,11 @@
+html, body {
+    height:100%;
+    background: #7F7F7F;
+}
+#userId{
+	font-size: 36px;
+}
+#user_info{
+	margin-top:50px;
+	margin-bottom: 10px;
+}

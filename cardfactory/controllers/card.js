@@ -37,6 +37,14 @@ CardController.getCardEditPage = function(req, res, next) {
   res.render('card-edit-page', { title: '카드 수정 페이지' });
 };
 
+CardController.countUserCard = function(req, res, next) {
+
+  req.params.userCardNum=req.params.userId;
+
+  Card.getUserCard(req.params, function(err, result) {
+    res.render('card-usercard-page', { userCardNum: req.params.userCardNum });
+  });
+};
 
 CardController.getUserCardPage = function(req, res, next) {
 
@@ -45,9 +53,10 @@ CardController.getUserCardPage = function(req, res, next) {
   req.params.userId=req.params.userId;
 
   Card.getUserCard(req.params, function(err, result) {
-    res.render('card-usercard-page', { title: '사용자 작성 카드 페이지', data: result , imgIP : config.imgIP});
+    res.render('card-usercard-page', { userCardNum: req.params.userCardNum, userId: req.params.userId, data: result , imgIP : config.imgIP});
   });
 };
+
 
 CardController.postCard = function(req, res, next) {
   if (!Session.hasSession(req)) {

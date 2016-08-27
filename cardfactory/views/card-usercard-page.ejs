@@ -6,12 +6,16 @@
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="/stylesheets/swiper.min.css">
     <link rel="stylesheet" href="/stylesheets/swiper_scroll.css">
+    <link rel="stylesheet" href="/stylesheets/card-user-page.css">
 </head>
-<body  style="width:100%">
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<body>
+<%- include partial/common-nav-usercard.ejs %>
+<p id="user_info">
+<label id="userId" ><%=userId%></label>총<%=userCardNum%>개의 글을 작성하였습니다. 
+<div></div>
 <!--Swiper-->
 <%- include partial/card-usercard.ejs %>
+
 
 <!--Swiper Js-->
 <script src="/javascripts/templates/swiper.min.js"></script>

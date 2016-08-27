@@ -5,19 +5,12 @@ body {
 }
 #container{
 position:relative;
-top:50px;
-}
-
-#logo{
-  width: 90%;
-  height: 90%;
+top:100px;
 }
 
 #wrapper input[type="text"], #wrapper input[type="password"] {
-
   width: 80%;
   margin-left: 10%;
-  margin-top:0%;
   position: relative;
   border: none;
   background: transparent;
@@ -27,11 +20,8 @@ top:50px;
   padding: 10px;
   color: #FFFFFF;
   transition: all .2s ease-out;
-  font-weight: 500;
 }
-#wrapper input[type="text"]{
-  margin-bottom:0px;
-}
+
 #wrapper input[type="text"]:required:valid, #wrapper input[type="password"]:required:valid {
   border-bottom: 3px solid #2ECC71;
 }
@@ -39,7 +29,7 @@ top:50px;
   margin-top: 10px;
 }
 
-#wrapper #login_btn {
+#wrapper #join_btn {
   width: 80%;
   text-align:center;
   margin-left: 10%;
@@ -47,23 +37,11 @@ top:50px;
   margin-top: 0px;
   border: none;
   background-color: #FFFFFF;
-  font-family: 'Nanum Myeongjo';
+  font-family: 'Raleway';
   color:#A3A3A3;
-  font-weight: 500;
   font-size: 1.5em;
   padding: 20px;
   cursor: pointer;
-}
-#wrapper #join_btn {
-  position: relative;
-  text-align:center;
-  color:#FFFFFF;
-	margin-left:0%;
-	margin-top: 70px;
-}
-#wrapper #pw_find {
-	position:absolute;
-	right:130px;
 }
 #wrapper .placeholder {
   margin-left: 5%;
@@ -75,12 +53,18 @@ top:50px;
 }
 
 #email_error{
-  margin-left: 10%;
-	color:black;
-  font-weight: 0;
+	margin-left: 10%;
+  color:white;
 }
 #pw_error{
+	margin-left: 10%;
+  color:white;
+}
+#pw_confirm_error{
   margin-left: 10%;
-  color:black;
-  font-weight: 0;
+  color:white;
+}
+#nick_error{
+  margin-left: 10%;
+  color:white;
 }

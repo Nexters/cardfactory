@@ -111,6 +111,33 @@ Card.getById = function(params, finalCallback) {
     });
 };
 
+
+// Count card by userId
+Card.countUserCard = function(params, finalCallback) {
+  var query = "SELECT count(*) FROM card WHERE userId = ?";
+
+  async.waterfall([
+    function(callback){
+
+      pool.getConnection(function(err, connection){
+        if(err) callback(err);
+        else    callback(null, connection);
+      });
+    },
+    function(connection, callback){
+      //userCardNum은 user가 만든 카드의 수
+      connection.query( query, [query], function(err, rows){
+        if(err) callback(err);
+        else    callback(null, rows[0]);
+        connection.release();
+      });
+    }
+    ], function(err, row){
+      if(err) finalCallback(err, null);
+      else    finalCallback(err, row);
+    });
+};
+
 // Get card by Id Order by UpdatedDate
 Card.getUserCard = function(params, finalCallback) {
   var query = "SELECT * FROM card WHERE userId = ? ORDER BY updatedDate LIMIT ?,?";
