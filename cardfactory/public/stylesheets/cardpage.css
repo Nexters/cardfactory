@@ -1,60 +1,98 @@
 body{
-	width : 1080px;
-	height : 1920px;
+	width : 100%;
+	height : 100vh;
+	margin : 0px;
+	padding : 0px;
+	color : white;
+}
+/*
+width : 1080px;
+height : 1920px;
 	margin-left : 25%;
 	margin-right : 25%;
+*/
+#cardpage_nav_div{
+	width : 100%;
+	height: 5%;
+	margin-bottom : 50px;
 }
 
 #cardpage_div{
-	margin : 100px;
+	margin : 0px;
+	padding : 0px;
 	width : 100%;
-	height : 100%;
+	height : 100vh;
 	overflow : hidden;
 	background-size : cover;
 }
 
 #cardpage_content_div{
 	margin-top : 10%;
+	margin-bottom : 10%;
 	width: 100%;
-	height : 80%;
 	text-align : center;
-	vertical-align : center;
 }
 
 #cardpage_content_div_div{
-	margin-bottom : 10%;
+	margin-bottom : 27px;
 }
 
 #cardpage_content{
-	height : 500px;
 	width : 100%;
 	text-align:center;
 	border-style : none;
 	background-color : #000;
 }
 
+.cardpage_content_class{
+	width : 89%;
+	margin-right : auto;
+	margin-left : auto;
+	margin-top : 0px;
+	margin-bottom : 3px;
+	text-align : center;
+}
+
 #cardpage_content_souce{
 	width : 100%;
-	height : 30%;
 	text-align : center;
 	border-style : none;
 	background-color : #000;
 }
 
-#cardpage_updatedDate_div{
-	width : 100%;
-	height : 10%;
-}
-
-.cardpage_content_class{
-	margin : auto;
-	width: 100%;
-	height : 10%;
-}
-
 .cardpage_source_class{
-	width:100%;
+	width : 89%;
+	/* height : 33px; */
+	margin-right : auto;
+	margin-left : auto;
+	margin-top : 0px;
+	margin-bottom : 3px;
+	text-align : center;
 }
+
+#cardpage_writer_div{
+	width: 89%;
+	height : 34px;
+	margin-right : auto;
+	margin-left : auto;
+	margin-top : 50px;
+	margin-bottom : 0px;
+	text-align : center;
+}
+
+#cardpage_updatedDate_div{
+	width: 89%;
+	height : 30px;
+	margin-right : auto;
+	margin-left : auto;
+	margin-top : 8px;
+	margin-bottom : 32px;
+	text-align : center;
+}
+
+
+
+
 
 /*
 	width : 1080px;

@@ -6,31 +6,40 @@
     <meta name="title" content="<%= title %>" />
 </head>
 <body>
-
 	<div id="cardpage_div" style = "background:url(<%= data.img %>) no-repeat;  ">
 
+		<div id="cardpage_nav_div">
+			<!--<%- include partial/common-nav.ejs %>-->
+		</div>
+
 		<div id="cardpage_content_div">
+
 			<div id="cardpage_content_div_div">
 				<font size = "<%= data.fontSize %>" face = "<%= data.font %>">
 					<% for (var i = 0 ; i < content.length ; i++) { %>
-						<label class = cardpage_content_class> <%= content[i] %> </label>
+						<div class = cardpage_content_class> <%= content[i] %> </div>
 					<% } %>
 				</font>
 			</div>
 
 			<div id="cardpage_source_div">
-				<font size = "12dp" face = "sans">
+				<font size = "4" face = "sans">
 
 					<% for (var i = 0 ; i < source.length ; i++) { %>
-						<label class = cardpage_source_class> <%= source[i] %> </label>
+						<div class = cardpage_source_class> <%= source[i] %> </div>
 					<% } %>
 
 				</font>
 			</div>
+
+		</div>
+
+		<div id="cardpage_writer_div">
+			<font size = "5" face ="sans"> By <%= writer %> </font>
 		</div>
 
 		<div id="cardpage_updatedDate_div">
-			<label><font size = "12" face = "sans"> <%= data.updatedDate %> </font> </label>
+			<font size = "4" face = "sans"> 2016년 08월 01일 / 13시 24분의 기록 </font>
 		</div>
 
 	</div>
