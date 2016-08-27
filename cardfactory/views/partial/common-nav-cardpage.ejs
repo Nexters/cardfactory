@@ -1,0 +1,29 @@
+<link href="/stylesheets/common-card-nav.css" rel="stylesheet">
+<nav class="navbar">
+	<div id="navbar-container">
+		
+		<div class="navbar-menu">
+				<a id="backBtn" href="/cards">
+					<img class="navbar-menu-img" src="/resources/common_back_btn.png">
+				</a>
+		</div>
+
+		<div class="navbar-menu">
+			<a id="logoBtn" class="navbar-logo">
+				<img class="navbar-logo-img" src="/resources/logo.png">
+			</a>
+		</div>
+		
+		<div class="navbar-menu">
+			<% if (typeof userId !== "undefined") { %>
+				<a id="editCardBtn" href="/cards/new">
+					<img class="navbar-menu-img" src="/resources/editBtn.png">
+				</a>
+			<% } else { %>
+				<a id="editCardBtn" href="/login">
+					<img class="navbar-menu-img" src="/resources/editBtn.png">
+				</a>
+			<% } %>
+		</div>
+	</div>
+</nav>
