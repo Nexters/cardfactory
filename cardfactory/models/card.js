@@ -88,8 +88,6 @@ Card.get = function(params, finalCallback) {
 // Get card by Id
 Card.getById = function(params, finalCallback) {
   var query = "SELECT card.*, user.nickname FROM card, user WHERE card.id = ? && card.userId = user.id;";
-  console.log("userId : ");
-  console.log(params.userId);
 
   async.waterfall([
     function(callback){
